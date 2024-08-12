@@ -1,19 +1,24 @@
 import localFont from 'next/font/local'
-       
-export const circular_std = localFont({
+
+export const jakartaSans = localFont({
     src: [
         {
-            path: "./fonts/circular-std-medium.woff2",
+            path: "./fonts/PlusJakartaSans-Light.woff2",
+            weight:"300",
+            style:"normal",
+        },
+        {
+            path: "./fonts/PlusJakartaSans-Regular.woff2",
             weight:"400",
             style:"normal",
         },
         {
-            path: "./fonts/circular-std-regular.woff2",
+            path: "./fonts/PlusJakartaSans-Medium.woff2",
             weight:"500",
             style:"normal"
         },
     ],
-    variable: '--font-circularstd'
+    variable: '--font-jakarta'
 });
 
 export const poppins = localFont({

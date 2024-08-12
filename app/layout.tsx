@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { roboto, circular_std, poppins } from "./ui/fonts";
+import { roboto, jakartaSans, poppins } from "./ui/fonts";
+import "@/app/globals.css";
+
 
 export const metadata: Metadata = {
   title: "Ques.AI",
@@ -13,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${circular_std.variable} ${poppins.variable}`}>{children}</body>
+      <body className={`${roboto.variable} ${jakartaSans.variable} ${poppins.variable}`}>{children}</body>
     </html>
   );
 }
