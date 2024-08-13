@@ -1,4 +1,4 @@
-import Nav from "@/app/ui/dashboard/nav";
+import Nav from "@/app/ui/dashboard/Nav";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (

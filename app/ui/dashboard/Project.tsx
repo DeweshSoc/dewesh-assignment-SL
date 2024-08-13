@@ -1,4 +1,4 @@
-import styles from "./project.module.css";
+import styles from "./Project.module.css";
 
 export default function Project() {
     return (

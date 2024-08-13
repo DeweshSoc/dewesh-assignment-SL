@@ -4,7 +4,7 @@ import Link from "next/link"
 import quesLogo from "@/public/ques-logo.svg"
 import bellIcon from "@/public/bell.svg"
 import gearIcon from "@/public/gear.svg"
-import styles from "./nav.module.css"
+import styles from "./Nav.module.css"
 
 export default function Nav(){
     return (

@@ -1,9 +1,9 @@
 "use client";
 
-import CreateProjectBtn from "@/app/ui/common/createProjectBtn";
-import CreateProjectModal from "@/app/ui/dashboard/createModal";
-import Project from "@/app/ui/dashboard/project";
-import styles from "./projectDeck.module.css";
+import CreateProjectBtn from "@/app/ui/common/CreateProjectBtn";
+import CreateProjectModal from "@/app/ui/dashboard/CreateModal";
+import Project from "@/app/ui/dashboard/Project";
+import styles from "./ProjectDeck.module.css";
 
 import { useState } from "react";
 

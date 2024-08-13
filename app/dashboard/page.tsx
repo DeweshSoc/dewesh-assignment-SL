@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import styles from "./page.module.css";
-import CreateProjectModal from "../ui/dashboard/createModal";
-import CreateProjectBtn from "../ui/common/createProjectBtn";
+import CreateProjectModal from "../ui/dashboard/CreateModal";
+import CreateProjectBtn from "../ui/common/CreateProjectBtn";
 
 import podcast from "@/public/podcast.svg";
 import { useState } from "react";

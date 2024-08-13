@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from "react";
-import { Modal } from "../common/modal";
-import styles from "./createmodal.module.css"
+import { Modal } from "../common/Modal";
+import styles from "./CreateModal.module.css"
 
 export default function CreateProjectModal({onModalCancel}:{onModalCancel:Function}) {
     const [errorMessage, setErrorMessage] = useState("");

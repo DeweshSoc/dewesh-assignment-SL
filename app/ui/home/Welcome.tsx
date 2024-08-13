@@ -1,5 +1,5 @@
 import Image from "next/image"
-import styles from "./welcome.module.css"
+import styles from "./Welcome.module.css"
 
 import logoIconWhite from "@/public/logo_icon_white.svg";
 import logoText from "@/public/logo_text.svg";

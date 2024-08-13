@@ -1,2 +1,2 @@
-export * from "./welcome"
-export * from "./login"
+export * from "./Welcome"
+export * from "./Login"

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./login-form.module.css";
+import styles from "./LoginForm.module.css";
 
 export function LoginForm() {
     return (
