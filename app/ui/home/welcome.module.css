@@ -1,0 +1,38 @@
+.page{
+    align-items: flex-start;
+    background: url("/welcome_bg.svg"),linear-gradient(45deg, rgba(90,36,130,1) 0%, rgba(173,70,226,1) 100%);
+    background-size: cover;
+    display: inherit;
+    flex-direction: column;
+    padding:4rem 0 0 5.2rem;
+    width: 66%;
+    z-index: 2
+}
+
+
+.logoGroup{
+    display: flex;
+    gap: 10px;
+    padding: 1rem;
+    align-items: center;
+}
+
+.header{
+    color: rgb(var(--dark-text-rgb));
+    padding: 1rem;
+
+}
+
+.header h1{
+    font-family: var(--font-jakarta);
+    font-weight: 400;
+    font-size: 5.2rem;
+    margin: 1.8rem 0 1.6rem;
+}
+
+.header h2{
+    font-family: var(--font-poppins);
+    font-weight: 300;
+    font-size: 1.8rem;
+}
+
