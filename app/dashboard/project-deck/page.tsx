@@ -3,7 +3,7 @@
 import CreateProjectBtn from "@/app/ui/common/CreateProjectBtn";
 import CreateProjectModal from "@/app/ui/dashboard/CreateModal";
 import Project from "@/app/ui/dashboard/Project";
-import styles from "./ProjectDeck.module.css";
+import styles from "./project-deck.module.css";
 
 import { useState } from "react";
 
