@@ -1,5 +1,3 @@
-'use client'
-
 import { SyntheticEvent, useState } from "react";
 import { Modal } from "../common/modal";
 import styles from "./createmodal.module.css"

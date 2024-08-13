@@ -1,3 +1,10 @@
+import Nav from "@/app/ui/dashboard/nav";
+
 export default function Layout({ children }: { children: React.ReactNode }) {
-    return <div>{children}</div>;
+    return (
+        <>
+            <Nav />
+            <div>{children}</div>;
+        </>
+    );
 }

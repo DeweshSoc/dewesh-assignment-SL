@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import styles from "./page.module.css";
-import  Nav from "../ui/dashboard/nav";
-import  CreateProjectModal  from "../ui/dashboard/createModal";
-import CreateProjectBtn from "../ui/common/createProjectBtn"
+import CreateProjectModal from "../ui/dashboard/createModal";
+import CreateProjectBtn from "../ui/common/createProjectBtn";
 
 import podcast from "@/public/podcast.svg";
 import { useState } from "react";
@@ -18,7 +17,6 @@ export default function Page() {
 
     return (
         <main>
-            <Nav />
             <div className={styles.content}>
                 <h1>Create a New Project</h1>
                 <Image src={podcast} alt="podcast image" />
@@ -29,9 +27,13 @@ export default function Page() {
                     ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     Duis aute irure dolor in reprehenderit in
                 </p>
-                <CreateProjectBtn onModalToggle={toggleModal}/>
+                <CreateProjectBtn onModalToggle={toggleModal} />
             </div>
-            {modalOn ? <CreateProjectModal onModalCancel={toggleModal}/> : <></>}
+            {modalOn ? (
+                <CreateProjectModal onModalCancel={toggleModal} />
+            ) : (
+                <></>
+            )}
         </main>
     );
 }
