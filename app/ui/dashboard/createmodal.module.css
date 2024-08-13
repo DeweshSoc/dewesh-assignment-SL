@@ -1,0 +1,28 @@
+.modalContent{
+    display: flex;
+    flex-direction: column;
+}
+
+.modalContent label{
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    color: var(--light-text-hex);
+}
+
+.modalContent input[type=text]{
+    border-radius: 7.7px;
+    border: solid 1.28px #DBDBDB;
+    background-color: var(--background-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+    padding: 1rem;
+}
+
+.buttonsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}

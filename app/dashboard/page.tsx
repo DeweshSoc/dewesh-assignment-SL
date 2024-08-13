@@ -1,11 +1,21 @@
+"use client";
+
 import Image from "next/image";
-import { Nav } from "../ui/dashboard/nav";
 import styles from "./page.module.css";
+import  Nav from "../ui/dashboard/nav";
+import  CreateProjectModal  from "../ui/dashboard/createModal";
+import CreateProjectBtn from "../ui/common/createProjectBtn"
 
 import podcast from "@/public/podcast.svg";
-import plusIcon from "@/public/plus-btn.svg";
+import { useState } from "react";
 
-export default async function Page() {
+export default function Page() {
+    const [modalOn, setModalOn] = useState(false);
+
+    function toggleModal() {
+        setModalOn((modalState) => !modalState);
+    }
+
     return (
         <main>
             <Nav />
@@ -19,11 +29,9 @@ export default async function Page() {
                     ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     Duis aute irure dolor in reprehenderit in
                 </p>
-                <div className={styles.contentBtn}>
-                    <Image src={plusIcon} alt="plus-btn" />
-                    <span>Create New Project</span>
-                </div>
+                <CreateProjectBtn onModalToggle={toggleModal}/>
             </div>
+            {modalOn ? <CreateProjectModal onModalCancel={toggleModal}/> : <></>}
         </main>
     );
 }
