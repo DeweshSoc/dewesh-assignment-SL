@@ -6,6 +6,8 @@ export default function CreateProjectModal({onModalCancel}:{onModalCancel:Functi
     const [errorMessage, setErrorMessage] = useState("");
     const [projectName, setProjectName] = useState("");
 
+    document.documentElement.style.overflow = "hidden"
+
     function handleInput(e:SyntheticEvent){
         const value = (e.target as HTMLInputElement).value;
         setProjectName(value);  

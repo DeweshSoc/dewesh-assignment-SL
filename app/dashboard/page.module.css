@@ -4,7 +4,7 @@
     flex-direction: column;
     font-family: var(--font-roboto);
     margin: 2rem 0rem;
-    padding: 0 5rem;
+    padding: 0 6rem;
 }
 
 .content h1{
@@ -19,4 +19,5 @@
     text-align: center;
     width: 70%;
     margin-top: 1.5rem;
+    margin-bottom: 2rem;
 }

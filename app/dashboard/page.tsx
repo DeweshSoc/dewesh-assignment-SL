@@ -11,6 +11,8 @@ import { useState } from "react";
 export default function Page() {
     const [modalOn, setModalOn] = useState(false);
 
+     document.documentElement.style.overflowY = "auto";
+
     function toggleModal() {
         setModalOn((modalState) => !modalState);
     }

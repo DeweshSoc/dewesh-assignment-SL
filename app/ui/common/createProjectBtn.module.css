@@ -6,12 +6,11 @@
     cursor: pointer;
     display: flex;
     flex-direction: row;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 500;
     font-family: var(--font-roboto);
     gap: 0.7rem;
     justify-content: space-around;
-    margin-top: 2rem;
     padding: 1rem 1.2rem;
     transition: ease 120ms;
 }

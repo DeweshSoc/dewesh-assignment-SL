@@ -61,6 +61,7 @@ body {
 body {
   color: rgb(var(--light-text-hex));
   background-color: var(--background-color);
+  font-family: var(--font-roboto);
 }
 
 a {
@@ -97,6 +98,10 @@ a {
 
 .text-red{
   color:#e74946;
+}
+
+.text-stale{
+  color: #969696;
 }
 
 
