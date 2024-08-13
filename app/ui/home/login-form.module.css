@@ -1,0 +1,54 @@
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.loginForm input[type=text], .loginForm input[type=password]{
+    border-radius: 7.7px;
+    border: solid 1.28px #DBDBDB;
+    background-color: var(--background-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0 0 1.2rem 0;
+    padding: 1rem;
+}
+
+.loginForm input::placeholder{
+    color: #A7A7A7;
+}
+
+
+.loginForm .sessionHelp{
+    color: var(--light-text-hex);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sessionHelp span{
+    display: flex;
+    gap: 0.3rem;
+}
+
+.sessionHelp input[type=checkbox]:checked{
+    background-color: #af78ce;
+}
+
+.loginBtn{
+    background-color: var(--accent-text-color);
+    border-radius: 7.7px;
+    border: none;
+    box-shadow: none;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    transition: background-color ease 120ms;
+}
+
+.loginBtn:hover{
+    background-color: #af78ce;
+    cursor: pointer;
+}

@@ -1,0 +1,24 @@
+.loginContainer{
+    align-items: center;
+    display: inherit;
+    flex-direction: column;
+    font-family: var(--font-roboto);
+    padding: 4rem 5rem;
+    text-align: center;
+    width: 34%;
+}
+
+.loginBanner{
+    margin: 1rem 0 2rem;
+}
+
+.loginBanner p{
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--accent-text-color);
+}
+
+.loginBanner span{
+    font-weight: 500;
+}
+
