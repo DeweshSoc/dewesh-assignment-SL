@@ -72,6 +72,34 @@ a {
   color: #085FCE;
 }
 
+.btn{
+  cursor: pointer;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border:none;
+  border-radius: 8px;
+  font-family: var(--font-roboto);
+}
+
+.btn-primary{
+  background-color: var(--accent-text-color);
+  color: #fff;
+  font-weight: 700;
+}
+
+.btn-cancel{
+  color: #e74946;
+}
+
+.btn-transparent{
+  background-color: transparent;
+}
+
+.text-red{
+  color:#e74946;
+}
+
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
