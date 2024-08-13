@@ -6,7 +6,7 @@ import bellIcon from "@/public/bell.svg"
 import gearIcon from "@/public/gear.svg"
 import styles from "./nav.module.css"
 
-export function Nav(){
+export default function Nav(){
     return (
         <div className={styles.nav}>
             <div className={styles.brand}>
