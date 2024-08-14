@@ -15,7 +15,11 @@ export async function signupService(email:string, password:string) : Promise<any
 
         return await sendPostRequest(API_ENDPOINTS.POST_CREATE, {
             method: "post",
-            body
+            body,
+            headers: {
+                Accept: "*/*",
+                "Content-Type": "application/json",
+            },
         });
 
     } catch (err) {
@@ -27,9 +31,9 @@ export async function signupService(email:string, password:string) : Promise<any
 export async function loginService(email: string, password: string): Promise<any> {
     try {
         if (!isEmail(email)) {
-            alert("Invalid Email");
-            return;
+            throw new Error("Invalid Email");
         }
+
         const body = JSON.stringify({
             email,
             password,
@@ -39,7 +43,8 @@ export async function loginService(email: string, password: string): Promise<any
             method: "post",
             body,
             headers: {
-                Accept: "application/json",
+                Accept: "*/*",
+                "Content-Type": "application/json",
             },
         });
     } catch (err) {
