@@ -14,12 +14,7 @@ export async function signupService(email:string, password:string) : Promise<any
         });
 
         return await sendPostRequest(API_ENDPOINTS.POST_CREATE, {
-            method: "post",
-            body,
-            headers: {
-                Accept: "*/*",
-                "Content-Type": "application/json",
-            },
+            body
         });
 
     } catch (err) {
@@ -40,12 +35,7 @@ export async function loginService(email: string, password: string): Promise<any
         });
 
         await sendPostRequest(API_ENDPOINTS.POST_LOGIN, {
-            method: "post",
-            body,
-            headers: {
-                Accept: "*/*",
-                "Content-Type": "application/json",
-            },
+            body
         });
     } catch (err) {
         console.error(err);

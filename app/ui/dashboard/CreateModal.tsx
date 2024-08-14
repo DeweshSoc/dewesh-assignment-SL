@@ -4,11 +4,12 @@ import {toast} from "react-toastify"
 import { Modal } from "../common/Modal";
 import styles from "./CreateModal.module.css"
 import { createProjectService } from "@/app/lib/dataServices";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
-export default function CreateProjectModal({onModalCancel}:{onModalCancel:Function}) {
+export default function CreateProjectModal({onModalCancel, onCreation}:any) {
     const [errorMessage, setErrorMessage] = useState("");
     const [projectName, setProjectName] = useState("");
+    const pathName = usePathname();
     const router = useRouter();
 
     document.documentElement.style.overflow = "hidden"
@@ -28,7 +29,11 @@ export default function CreateProjectModal({onModalCancel}:{onModalCancel:Functi
             }
             const response = await createProjectService(projectName);
             toast.success(`${response?.message || "Login successful"}`);
-            router.push("/dashboard/project-deck");
+            if(pathName === '/dashboard'){
+                router.push("/dashboard/project-deck");
+            }
+            onCreation();
+            onModalCancel()
         } catch (err: any) {
             console.error(err);
             toast.error(err.message);
