@@ -7,20 +7,23 @@ import { SyntheticEvent, useState } from "react";
 import styles from "./AuthForm.module.css";
 import { signupService, loginService } from "@/app/lib/auth";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export function LoginForm() {
     // states
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const currentPath = usePathname();
+    const router = useRouter();
 
     // handlers
 
     async function handleSignup(e : SyntheticEvent) {
         try{    
             e.preventDefault();
-            await signupService(email,password);
-            toast.success(`${email} is signed up`);
+            const response = await signupService(email,password);
+            toast.success(`${response?.message || 'Signup successful'}`);
+            router.push("/");
         }catch(err:any){
             console.error(err);
             toast.error(err.message);
