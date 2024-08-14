@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { SyntheticEvent, useState } from "react";
 
 import styles from "./AuthForm.module.css";
-import { signupService, loginService } from "@/app/lib/auth";
+import { signupService, loginService } from "@/app/lib/authServices";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 

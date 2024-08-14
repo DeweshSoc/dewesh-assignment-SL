@@ -21,13 +21,7 @@ export const sendPostRequest = (path:string, options:RequestInit) : Promise<any>
     return new Promise(async(resolve, reject) => {
         try{
             const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}${path}`;
-            const res = await fetch(url, {
-                ...options,
-                headers: {
-                    Accept: "*/*",
-                    "Content-Type": "application/json",
-                },
-            });
+            const res = await fetch(url, options);
             if(!res.ok){
                 const resBodyStream = await res.json();
                 const msg = resBodyStream.message;
