@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./Login.module.css";
-import { LoginForm } from "./LoginForm";
+import { LoginForm } from "./AuthForm";
 
 import logoIconPurple from "@/public/logo_icon_purple.svg";
 
