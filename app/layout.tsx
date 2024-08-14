@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { roboto, jakartaSans, poppins } from "./ui/fonts";
 import "@/app/globals.css";
+import ToastProvider from "./ui/common/react-toastify";
 
 
 export const metadata: Metadata = {
@@ -15,7 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${jakartaSans.variable} ${poppins.variable}`}>{children}</body>
+      <body className={`${roboto.variable} ${jakartaSans.variable} ${poppins.variable}`}>
+        <ToastProvider>
+          {children}
+        </ToastProvider>
+        </body>
     </html>
   );
 }
