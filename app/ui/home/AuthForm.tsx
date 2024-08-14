@@ -30,7 +30,17 @@ export function LoginForm() {
         }
     }
 
-    function handleLogin() {}
+    async function handleLogin(e: SyntheticEvent) {
+        try {
+            e.preventDefault();
+            const response = await loginService(email, password);
+            toast.success(`${response?.message || "Login successful"}`);
+            router.push("/dashboard");
+        } catch (err: any) {
+            console.error(err);
+            toast.error(err.message);
+        }   
+    }
 
     const loginBtn = (
         <input
