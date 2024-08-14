@@ -1,4 +1,4 @@
 export const API_ENDPOINTS = {
-    POST_CREATE_USER: "/user/create",
-    POST_LOGIN_USER:"/auth/login"
+    POST_CREATE: "/auth/signup",
+    POST_LOGIN:"/auth/login"
 };

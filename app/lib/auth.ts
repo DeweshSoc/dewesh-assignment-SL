@@ -13,7 +13,7 @@ export async function signupService(email:string, password:string) : Promise<any
             password,
         });
 
-        return await sendPostRequest(API_ENDPOINTS.POST_CREATE_USER, {
+        return await sendPostRequest(API_ENDPOINTS.POST_CREATE, {
             method: "post",
             body
         });
@@ -24,7 +24,7 @@ export async function signupService(email:string, password:string) : Promise<any
     }
 }
 
-export async function loginService(email: string, password: string): Promise<void> {
+export async function loginService(email: string, password: string): Promise<any> {
     try {
         if (!isEmail(email)) {
             alert("Invalid Email");
@@ -35,7 +35,7 @@ export async function loginService(email: string, password: string): Promise<voi
             password,
         });
 
-        await sendPostRequest(API_ENDPOINTS.POST_LOGIN_USER, {
+        await sendPostRequest(API_ENDPOINTS.POST_LOGIN, {
             method: "post",
             body,
             headers: {
@@ -44,6 +44,6 @@ export async function loginService(email: string, password: string): Promise<voi
         });
     } catch (err) {
         console.error(err);
-        alert("Something went wrong, check console");
+        throw(err);
     }
 }
