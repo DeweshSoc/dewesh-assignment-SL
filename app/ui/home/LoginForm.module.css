@@ -52,3 +52,37 @@
     background-color: #af78ce;
     cursor: pointer;
 }
+.signupBtn{
+    border-radius: 7.7px;
+    border: 1px solid var(--accent-text-color);
+    background-color: transparent;
+    box-shadow: none;
+    color: var(--accent-text-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    transition: all ease 120ms;
+}
+
+.signupBtn:hover{
+    background-color: #af78ce;
+    color: #fff;
+    cursor: pointer;
+}
+
+.baredOr{
+    display: flex;
+    align-items: center;
+    color: var(--accent-text-color);
+    justify-content: space-between;
+}
+
+.bar{
+    height: 0;
+    width: 46%;
+    border-top: 1px solid #ccc;
+}
+.or{
+    width: 8%;
+}
