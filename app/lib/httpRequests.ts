@@ -16,16 +16,24 @@
 
 
 
-export const sendPostRequest = (path:string, options:RequestInit) => {
+export const sendPostRequest = (path:string, options:RequestInit) : Promise<any>=> {
 
     return new Promise(async(resolve, reject) => {
         try{
+            console.log(path,options);
             const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}${path}`;
-            console.log(url, process.env.NEXT_PUBLIC_BACKEND_URL, path);
-            const res = await fetch(url,options);
+            const res = await fetch(url, {
+                ...options,
+                headers: {
+                    Accept: "*/*",
+                    "Content-Type": "application/json",
+                },
+            });
+            if(!res.ok) throw new Error(`Error ${res.status} - ${res.statusText}`);
             const  response = res.json();
-            resolve(res);
+            resolve(response);
         }catch(err){
+            console.log(err);
             reject(err);
         }
     })

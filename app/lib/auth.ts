@@ -3,7 +3,7 @@ import { sendPostRequest } from "./httpRequests";
 import isEmail from "validator/lib/isEmail";
 
 
-export async function signupService(email:string, password:string) : Promise<void>{
+export async function signupService(email:string, password:string) : Promise<any>{
     try {
         if (!isEmail(email)) {
             throw new Error("Invalid Email")
@@ -13,13 +13,11 @@ export async function signupService(email:string, password:string) : Promise<voi
             password,
         });
 
-        await sendPostRequest(API_ENDPOINTS.POST_CREATE_USER, {
+        return await sendPostRequest(API_ENDPOINTS.POST_CREATE_USER, {
             method: "post",
-            body,
-            headers: {
-                Accept: "application/json",
-            },
+            body
         });
+
     } catch (err) {
         console.error(err);
         throw err;
