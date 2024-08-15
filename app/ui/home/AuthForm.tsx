@@ -36,8 +36,9 @@ export function LoginForm() {
     async function handleLogin(e: SyntheticEvent) {
         try {
             e.preventDefault();
-            login(email,password);
-            if(error) throw error;
+            await login(email,password);
+            // if(error) throw error;
+            toast.success("Login successful");
         } catch (err: any) {
             console.error(err);
             toast.error(err.message);

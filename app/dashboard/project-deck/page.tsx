@@ -15,19 +15,25 @@ export default function Page() {
     const [projects, setProjects] = useState<any[]>([]);
     const [modalOn, setModalOn] = useState(false);
     const [triggerFetch, setTriggerFetch] = useState(true);
-    const {user, isAuthenticated} = useAuth();
+    const {user, isAuthenticated, logout} = useAuth();
     const router = useRouter()
 
     useEffect(()=>{
-        if(!isAuthenticated()) router.push("/");
+        if(!isAuthenticated()) router.push("/")
     },[])
 
     useEffect(()=>{
-        if(!user?.token) return;
         async function getPageData(){
-            const response = await fetchProjectService(user?.token as string);
-            setProjects(response.data.projects);
+            try{
+                const response = await fetchProjectService(user?.token as string);
+                setProjects(response.data.projects);
+            }catch(err:any){
+                if (err.status === 403) {
+                    await logout();
+                }
+            }
         }
+        if(!user?.token) return;
         if(triggerFetch){
             getPageData();
             setTriggerFetch(false);

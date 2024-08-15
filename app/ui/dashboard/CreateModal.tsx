@@ -45,7 +45,7 @@ export default function CreateProjectModal({onModalCancel, triggerFetch}:{
             onModalCancel();
         } catch (err: any) {
             if(err.status === 403){
-                logout();
+                await logout();
             }
             console.error(err);
             toast.error(err.message);
