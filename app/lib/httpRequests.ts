@@ -1,7 +1,4 @@
-const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmJjY2Y3YWQwNmFiYjlmZWEzZjY4YTciLCJlbWFpbCI6Im1lZ2hhQHlvcG1haWwuY29tIiwiaWF0IjoxNzIzNjQ5OTQwLCJleHAiOjE3MjM4MjI3NDB9.jlUJ3yQqR_Rcrih4MjJsLEbv_1YP320GnIAb8NaDAts";
-
-export const sendPostRequest = (path:string, options:RequestInit) : Promise<any>=> {
+export const sendPostRequest = (path:string, options:Record<string,any>) : Promise<any>=> {
 
     return new Promise(async(resolve, reject) => {
         try{
@@ -29,13 +26,17 @@ export const sendPostRequest = (path:string, options:RequestInit) : Promise<any>
     })
 
 };
-export const sendPostRequestAuth = (path:string, options:RequestInit) : Promise<any>=> {
+export const sendPostRequestAuth = (path:string, options: Record<string,any>) : Promise<any>=> {
 
     return new Promise(async(resolve, reject) => {
         try{
+            const {token, body} = options;
+            if(!token){
+                throw new Error("No Token");
+            }
             const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}${path}`;
             const res = await fetch(url, {
-                ...options,
+                body,
                 method:"POST",
                 headers: {
                     Accept: "*/*",
@@ -59,13 +60,12 @@ export const sendPostRequestAuth = (path:string, options:RequestInit) : Promise<
 
 };
 
-export const sendGetRequest = (path:string, options:RequestInit) : Promise<any>=> {
+export const sendGetRequest = (path:string, options:Record<string,any>) : Promise<any>=> {
 
     return new Promise(async(resolve, reject) => {
         try{
             const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}${path}`;
             const res = await fetch(url, {
-                ...options,
                 method:'GET',
                 headers: {
                     Accept: "*/*",
@@ -89,13 +89,14 @@ export const sendGetRequest = (path:string, options:RequestInit) : Promise<any>=
 };
 
 
-export const sendGetRequestAuth = (path:string, options:RequestInit) : Promise<any>=> {
+export const sendGetRequestAuth = (path:string, options:Record<string,any>) : Promise<any>=> {
 
     return new Promise(async(resolve, reject) => {
         try{
+            const { token, body } = options;
             const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}${path}`;
             const res = await fetch(url, {
-                ...options,
+                body,
                 method:'GET',
                 headers: {
                     Accept: "*/*",
@@ -107,7 +108,6 @@ export const sendGetRequestAuth = (path:string, options:RequestInit) : Promise<a
                 const resBodyStream = await res.json();
                 const msg = resBodyStream.message;
                 throw new Error(`Error ${res.status} - ${msg || res.statusText}`);
-
             } 
             const  response = res.json();
             resolve(response);

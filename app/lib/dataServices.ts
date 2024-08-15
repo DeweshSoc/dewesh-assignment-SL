@@ -1,21 +1,21 @@
 import { API_ENDPOINTS } from "../_constants";
-import { sendPostRequest, sendPostRequestAuth, sendGetRequestAuth } from "./httpRequests";
+import { sendPostRequestAuth, sendGetRequestAuth } from "./httpRequests";
 
 
 
-export async function createProjectService(projectTitle:string) : Promise<any>{
+export async function createProjectService(projectTitle:string, token:string, onError:Function) : Promise<any>{
     try {
 
         if(!projectTitle){
             throw new Error("Missing project title");
         }
-
         const projects = await sendPostRequestAuth(
             API_ENDPOINTS.POST_PROJECT_CREATE,
             {
                 body: JSON.stringify({
                     projectTitle,
-                })
+                }),
+                token
             }
         );
 
@@ -23,14 +23,18 @@ export async function createProjectService(projectTitle:string) : Promise<any>{
 
     } catch (err) {
         console.error(err);
+        onError()
         throw err;
     }
 }
 
-export async function fetchProjectService(): Promise<any> {
+export async function fetchProjectService(token:string): Promise<any> {
     try {
         const projects = await sendGetRequestAuth(
-            API_ENDPOINTS.GET_PROJECTS_ALL,{}
+            API_ENDPOINTS.GET_PROJECTS_ALL,
+            {
+                token
+            }
         );
         return projects;
     } catch (err) {

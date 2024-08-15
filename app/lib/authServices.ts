@@ -34,7 +34,7 @@ export async function loginService(email: string, password: string): Promise<any
             password,
         });
 
-        await sendPostRequest(API_ENDPOINTS.POST_LOGIN, {
+        return await sendPostRequest(API_ENDPOINTS.POST_LOGIN, {
             body
         });
     } catch (err) {
