@@ -104,6 +104,11 @@ a {
   color: #969696;
 }
 
+.bar{
+  height: 0;
+  border:1.66px solid #CCCCCC
+  
+}
 
 @media (prefers-color-scheme: dark) {
   html {
