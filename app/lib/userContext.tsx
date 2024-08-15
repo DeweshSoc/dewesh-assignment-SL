@@ -102,6 +102,7 @@ export function AuthProvider({
         } catch (err) {
             setError(err);
             console.log("AUTH ERROR -> " + err);
+            throw(err);
         }finally{
             setLoading(false)
         }
