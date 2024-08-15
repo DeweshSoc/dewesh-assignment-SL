@@ -7,7 +7,7 @@ export default function Project({data}:{data:any}) {
     const {duration, unit} = parseDiffFromNow(data.updatedAt);
     return (
         <div className={styles.projectContainer}>
-            <div className={styles.avatar} style={{ backgroundColor: `#${data.colorHex || "f8a01d"}` }}>
+            <div className={styles.avatar} style={{ backgroundColor: `${data.colorHex || "#f8a01d"}` }}>
                 {data.initials.toUpperCase()}
             </div>
             <div className={styles.details}>
