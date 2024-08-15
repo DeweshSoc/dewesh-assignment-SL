@@ -6,24 +6,33 @@ import Project from "@/app/ui/dashboard/Project";
 import styles from "./project-deck.module.css";
 import { fetchProjectService } from "@/app/lib/dataServices";
 import { useEffect, useState } from "react";
+import useAuth from "@/app/lib/userContext";
+import { useRouter } from "next/navigation";
 
 
 
 export default function Page() {
-    const [modalOn, setModalOn] = useState(false);
     const [projects, setProjects] = useState<any[]>([]);
-    const [fetchData, setFetchData] = useState(true);
+    const [modalOn, setModalOn] = useState(false);
+    const [triggerFetch, setTriggerFetch] = useState(true);
+    const {user, isAuthenticated} = useAuth();
+    const router = useRouter()
 
     useEffect(()=>{
+        if(!isAuthenticated()) router.push("/");
+    },[])
+
+    useEffect(()=>{
+        if(!user?.token) return;
         async function getPageData(){
-            const response = await fetchProjectService();
+            const response = await fetchProjectService(user?.token as string);
             setProjects(response.data.projects);
         }
-        if(fetchData){
+        if(triggerFetch){
             getPageData();
-            setFetchData(false);
+            setTriggerFetch(false);
         }
-    },[fetchData])
+    },[triggerFetch])
 
 
 
@@ -54,7 +63,7 @@ export default function Page() {
                 </div>
             </div>
             {modalOn ? (
-                <CreateProjectModal onModalCancel={toggleModal} onCreation = {()=>{setFetchData(true)}} />
+                <CreateProjectModal onModalCancel={toggleModal} triggerFetch={()=>{setTriggerFetch(true)}} />
             ) : (
                 <></>
             )}

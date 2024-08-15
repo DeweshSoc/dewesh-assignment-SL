@@ -6,10 +6,24 @@ import CreateProjectModal from "../ui/dashboard/CreateModal";
 import CreateProjectBtn from "../ui/common/CreateProjectBtn";
 
 import podcast from "@/public/podcast.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { IUser } from "../lib/userContext";
+import { useRouter } from "next/navigation";
+import useAuth from "../lib/userContext";
 
 export default function Page() {
     const [modalOn, setModalOn] = useState(false);
+    const {isAuthenticated, user} = useAuth();
+    const {hasProject} = user as IUser;
+    const router = useRouter()
+    
+    useEffect(()=>{
+        if(!isAuthenticated()) router.push("/");
+        if(hasProject){
+            router.push("/dashboard/project-deck");
+        }
+    },[hasProject,router])
+
     
     if (typeof window !== "undefined") {
         document.documentElement.style.overflowY = "auto";

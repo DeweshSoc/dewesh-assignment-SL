@@ -1,14 +1,19 @@
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useContext, useState } from "react";
 import {toast} from "react-toastify"
 
 import { Modal } from "../common/Modal";
 import styles from "./CreateModal.module.css"
 import { createProjectService } from "@/app/lib/dataServices";
 import { usePathname, useRouter } from "next/navigation";
+import useAuth from "@/app/lib/userContext";
 
-export default function CreateProjectModal({onModalCancel, onCreation}:any) {
+export default function CreateProjectModal({onModalCancel, triggerFetch}:{
+    onModalCancel:Function,
+    triggerFetch?:Function
+}) {
     const [errorMessage, setErrorMessage] = useState("");
     const [projectName, setProjectName] = useState("");
+    const {user, updateHasProject, logout} = useAuth();
     const pathName = usePathname();
     const router = useRouter();
 
@@ -27,14 +32,21 @@ export default function CreateProjectModal({onModalCancel, onCreation}:any) {
                 setErrorMessage("Project name cannot be empty");
                 return;
             }
-            const response = await createProjectService(projectName);
-            toast.success(`${response?.message || "Login successful"}`);
+            const response = await createProjectService(projectName,user?.token as string);
+            const  {hasProject} = response.data;
+            toast.success(`${response?.message}`);
+            updateHasProject(hasProject);
             if(pathName === '/dashboard'){
                 router.push("/dashboard/project-deck");
             }
-            onCreation();
-            onModalCancel()
+            if(triggerFetch){
+                triggerFetch();
+            }
+            onModalCancel();
         } catch (err: any) {
+            if(err.status === 403){
+                logout();
+            }
             console.error(err);
             toast.error(err.message);
         }  

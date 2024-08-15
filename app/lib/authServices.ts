@@ -1,5 +1,5 @@
 import { API_ENDPOINTS } from "../_constants";
-import { sendPostRequest } from "./httpRequests";
+import { sendGetRequestAuth, sendPostRequest } from "./httpRequests";
 import isEmail from "validator/lib/isEmail";
 
 
@@ -39,6 +39,22 @@ export async function loginService(email: string, password: string): Promise<any
         });
     } catch (err) {
         console.error(err);
+        throw(err);
+    }
+}
+
+export async function logoutService(token:string){
+    try{    
+        if(!token){
+            throw new Error("Token not provided");
+        }
+
+        return await sendGetRequestAuth(API_ENDPOINTS.GET_LOGOUT,{
+            token
+        });
+
+    }catch(err){
+        console.log(err);
         throw(err);
     }
 }

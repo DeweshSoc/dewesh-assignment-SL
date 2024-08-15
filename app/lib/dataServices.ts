@@ -3,7 +3,7 @@ import { sendPostRequestAuth, sendGetRequestAuth } from "./httpRequests";
 
 
 
-export async function createProjectService(projectTitle:string, token:string, onError:Function) : Promise<any>{
+export async function createProjectService(projectTitle:string, token:string) : Promise<any>{
     try {
 
         if(!projectTitle){
@@ -23,7 +23,6 @@ export async function createProjectService(projectTitle:string, token:string, on
 
     } catch (err) {
         console.error(err);
-        onError()
         throw err;
     }
 }

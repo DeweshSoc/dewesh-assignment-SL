@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useContext, useState } from "react";
 
 import styles from "./AuthForm.module.css";
-import { signupService, loginService } from "@/app/lib/authServices";
+import { signupService } from "@/app/lib/authServices";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import useAuth from "@/app/lib/userContext";
 
 export function LoginForm() {
     // states
@@ -15,6 +16,8 @@ export function LoginForm() {
     const [password, setPassword] = useState("");
     const currentPath = usePathname();
     const router = useRouter();
+    const {loading, login, error} = useAuth();
+
 
     // handlers
 
@@ -33,9 +36,8 @@ export function LoginForm() {
     async function handleLogin(e: SyntheticEvent) {
         try {
             e.preventDefault();
-            const response = await loginService(email, password);
-            toast.success(`${response?.message || "Login successful"}`);
-            router.push("/dashboard");
+            login(email,password);
+            if(error) throw error;
         } catch (err: any) {
             console.error(err);
             toast.error(err.message);
@@ -45,6 +47,7 @@ export function LoginForm() {
     const loginBtn = (
         <input
             className={styles.loginBtn}
+            disabled={loading}
             type="submit"
             value="Login"
             onClick={handleLogin}
