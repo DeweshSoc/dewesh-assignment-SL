@@ -1,0 +1,110 @@
+.tableContainer{
+    margin-top: 1rem;
+}
+
+.tableHeader{
+    display: flex;
+    width: 100%;
+    background-color: #EDEDED;
+    color:#fff;
+    margin-top: 1rem;
+    color: #646464;
+    font-weight: 500;
+    border-radius: 10px;
+    justify-content: space-evenly;
+}
+
+.tableRow{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.cell{
+    display: inherit;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: #646464;
+}
+
+.tableHeader .cell{
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+
+.tableRow .cell{
+    padding: 1.5rem 1rem;
+    font-size: 1.3rem;
+}
+
+.action{
+    display: flex;
+    gap: 1rem;
+}
+
+.action .buttons button{
+    color:#646464;
+    font-size: 1rem;
+    font-family: var(--font-roboto);
+    font-weight: 500;
+    cursor: pointer;
+    background-color: transparent;
+    border-top: 1px solid #c7c7c7;
+    border-bottom: 1px solid #c7c7c7;
+    border-right: 1px solid #c7c7c7;
+    border-left: none;
+    padding: 1rem;
+   
+}
+
+.action .buttons button:first-of-type{
+    border-left: 1px solid #c7c7c7;
+     border-radius: 10px 0 0 10px;
+}
+.action .buttons button:last-of-type{
+     border-radius: 0 10px 10px 0;
+}
+
+.tableCell5{
+    width: 5%;
+}
+.tableCell10{
+  width: 10%;
+}
+.tableCell15{
+    width: 15%;
+}
+.tableCell20{
+  width: 20%;
+}
+.tableCell25{
+    width: 25%;
+}
+.tableCell30{
+  width: 30%;
+}
+.tableCell35{
+    width: 35%;
+}
+.tableCell40{
+  width: 40%;
+}
+.tableCell45{
+    width: 45%;
+}
+.tableCell50{
+  width: 50%;
+}
+.tableCell60{
+  width: 60%;
+}
+.tableCell70{
+  width: 70%;
+}
+.tableCell80{
+  width: 80%;
+}
+
+
+
