@@ -9,7 +9,7 @@ export default function Project({data}:{data:any}) {
     const router = useRouter();
     const {duration, unit} = parseDiffFromNow(data.updatedAt);
     function onProjectSelection(){
-        updateProject(data._id,data.title);
+        updateProject(data._id,data.title,data.episodes.length > 0);
         router.push(`/project`);
     }
     return (

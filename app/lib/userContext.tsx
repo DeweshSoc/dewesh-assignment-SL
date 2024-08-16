@@ -13,6 +13,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { loginService, logoutService, signupService } from "./authServices";
 
 import ToastProvider from "../ui/common/react-toastify";
+import { toast } from "react-toastify";
 export interface IUser {
     token: string;
     hasProject: boolean;
@@ -60,6 +61,7 @@ export function AuthProvider({
                 localStorage.setItem("user",JSON.stringify(user));
             }else if(storedUser){
                 localStorage.removeItem("user");
+                localStorage.removeItem("project");
             }
             setLocalStoreUpdate(false);
         }
@@ -130,6 +132,7 @@ export function AuthProvider({
             setUser(undefined);
             setLocalStoreUpdate(true);
             router.push("/");
+            toast.success("Logout successful");
         }catch(err:any){
             setError(err);
             console.log("AUTH ERROR -> " + err);
