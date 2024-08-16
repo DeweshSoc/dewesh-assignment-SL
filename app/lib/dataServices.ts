@@ -27,6 +27,37 @@ export async function createProjectService(projectTitle:string, token:string) : 
     }
 }
 
+export async function createEpisodeService(episodeName:string, transcript:string, projectId:string, token:string) : Promise<any>{
+    try {
+
+        if(!episodeName){
+            throw new Error("Missing Episode Name");
+        }
+        
+        if(!transcript){
+            throw new Error("Missing transcript");
+        }
+
+        const episode = await sendPostRequestAuth(
+            API_ENDPOINTS.POST_EPISODE_CREATE,
+            {
+                body: JSON.stringify({
+                    episodeName,
+                    transcript,
+                    projectId
+                }),
+                token
+            }
+        );
+
+        return episode;
+
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+}
+
 export async function fetchProjectService(token:string): Promise<any> {
     try {
         const projects = await sendGetRequestAuth(
@@ -41,5 +72,24 @@ export async function fetchProjectService(token:string): Promise<any> {
         throw err;
     }
 }
+export async function fetchEpisodeService(projectId:string,token:string): Promise<any> {
+    try {
+        const body = JSON.stringify({
+            projectId,
+        });
+        const projects = await sendPostRequestAuth(
+            API_ENDPOINTS.POST_FETCH_EPISODES,
+            {   
+                body,
+                token
+            }
+        );
+        return projects;
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+}
+
 
 
