@@ -10,9 +10,9 @@ export interface ICard{
     id:number
 }
 
-export default function AddPodcastCard({data}:{data:ICard}){
+export default function AddPodcastCard({data, onClick}:{data:ICard, onClick:any}){
     return (
-        <div className={styles.cardContainer}>
+        <div onClick={onClick} className={styles.cardContainer}>
             <div>
                 <h2 className={styles.title}>{data.title}</h2>
                 <p className={styles.subtitle}>{data.subtitle}</p>
