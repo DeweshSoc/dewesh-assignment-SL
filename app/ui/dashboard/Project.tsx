@@ -1,12 +1,19 @@
 import { parseDiffFromNow } from "@/app/lib/utils";
 import styles from "./Project.module.css";
+import { useRouter } from "next/navigation";
+import useProject from "@/app/lib/projectContext";
 
 
 export default function Project({data}:{data:any}) {
-
+    const {updateProject} = useProject();
+    const router = useRouter();
     const {duration, unit} = parseDiffFromNow(data.updatedAt);
+    function onProjectSelection(){
+        updateProject(data._id,data.title);
+        router.push(`/project`);
+    }
     return (
-        <div className={styles.projectContainer}>
+        <div onClick={onProjectSelection} className={styles.projectContainer}>
             <div className={styles.avatar} style={{ backgroundColor: `${data.colorHex || "#f8a01d"}` }}>
                 {data.initials.toUpperCase()}
             </div>
