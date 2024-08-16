@@ -11,6 +11,9 @@
   --light-text-hex:#3C3C3C;
   --accent-text-color: #7E22CE; 
   --background-color: #F5F6FA;
+
+
+
 }
 /* 
 @media (prefers-color-scheme: dark) {
@@ -88,8 +91,38 @@ a {
   font-weight: 700;
 }
 
+.btn-round{
+  border-radius: 40px;
+  padding: 0.7rem;
+}
+
+.btn-pending{
+  border: 1px solid #BB7A1F;
+  color:#B87A1F;
+  background-color: #FFE091;
+  font-weight: 700;
+}
+
+.btn-done{
+  border: 1px solid #7E23CD;
+  color:#7E23CD;
+  background-color: #DFBAFF;
+  font-weight: 700;
+}
+
 .btn-cancel{
-  color: #e74946;
+  background-color: transparent !important;
+  color: #e74946 !important;
+}
+
+.btn-outline-cancel{
+  border: 1px solid #e74946 !important;
+}
+
+.btn-outline-cancel:hover{
+  cursor: pointer;
+  background-color: #e74946 !important;
+  color: #fff !important;
 }
 
 .btn-transparent{
@@ -109,6 +142,7 @@ a {
   border:1.66px solid #CCCCCC
   
 }
+
 
 @media (prefers-color-scheme: dark) {
   html {
