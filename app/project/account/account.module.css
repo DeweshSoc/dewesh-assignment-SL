@@ -1,0 +1,63 @@
+.outlet{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.8rem;
+    padding: 0 3.5rem;
+    height: 100%;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading{
+    display: flex;
+    gap: 1rem;
+}
+
+.outlet h1{
+    font-size: 2.9rem;
+    font-weight: 500;
+}
+
+.settings{
+    margin: 4.5rem 0;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+
+.settings div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.settings div input{
+    padding: 0.8rem;
+    border: 1px solid #999999;
+    border-radius: 8px;
+    min-width: 300px;
+    font-size: 1rem;
+}
+
+.banner{
+    margin-top: 2rem;
+    background: linear-gradient(90.02deg, #FFFFFF 0.95%, #EDD9FF 99.9%);
+    padding: 1rem 5rem 1rem 2rem ;
+    border: 0.61px solid #7E22CE;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--accent-text-color);
+    /* font-weight: 500; */
+    font-size: 1.5rem;
+}
+
+
+.banner button{
+    padding: 1rem 3rem ;
+}
