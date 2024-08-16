@@ -18,6 +18,7 @@
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+    border-bottom: 2px solid #EDEDED;
 }
 
 .cell{
