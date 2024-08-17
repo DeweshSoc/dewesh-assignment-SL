@@ -19,7 +19,7 @@ export default function CreateEpisodeModal({
     const [episodeName, setEpisodeName] = useState("");
     const [transcript, setTranscript] = useState("");
     const { user, logout } = useAuth();
-    const {project,updateProject} = useProject();
+    const { project, updateProject } = useProject();
     // const pathName = usePathname();
     // const router = useRouter();
 
@@ -27,9 +27,9 @@ export default function CreateEpisodeModal({
 
     function handleInputEpisodeName(e: SyntheticEvent) {
         const value = (e.target as HTMLInputElement).value;
-        if(!value){
+        if (!value) {
             setErrorMessageEpisode("Episode name cannot be empty");
-        }else{
+        } else {
             setErrorMessageEpisode("");
         }
         setEpisodeName(value);
@@ -37,9 +37,9 @@ export default function CreateEpisodeModal({
 
     function handleInputTranscript(e: SyntheticEvent) {
         const value = (e.target as HTMLInputElement).value;
-        if(!value){
-             setErrorMessageTranscript("Transcript cannot be empty");
-        }else{
+        if (!value) {
+            setErrorMessageTranscript("Transcript cannot be empty");
+        } else {
             setErrorMessageTranscript("");
         }
         setTranscript(value);
@@ -63,10 +63,15 @@ export default function CreateEpisodeModal({
                 project?._id as string,
                 user?.token as string
             );
-            
+
             const { hasEpisode } = response.data;
 
-            updateProject(project?._id as string,project?.title as string,hasEpisode, "");
+            updateProject(
+                project?._id as string,
+                project?.title as string,
+                hasEpisode,
+                ""
+            );
             toast.success(`${response?.message}`);
 
             if (triggerFetch) {
@@ -86,26 +91,26 @@ export default function CreateEpisodeModal({
         <Modal modalTitle="Upload from Youtube">
             <div className={styles.modalContent}>
                 {/* <div> */}
-                    <label htmlFor="episodeName">Name:</label>
-                    <input
-                        type="text"
-                        id="episodeName"
-                        name="episodeName"
-                        value={episodeName}
-                        onChange={handleInputEpisodeName}
-                    />
-                    <p className="text-red">{errorMessageEpisode}</p>
+                <label htmlFor="episodeName">Name:</label>
+                <input
+                    type="text"
+                    id="episodeName"
+                    name="episodeName"
+                    value={episodeName}
+                    onChange={handleInputEpisodeName}
+                />
+                <p className="text-red">{errorMessageEpisode}</p>
                 {/* </div> */}
                 {/* <div> */}
-                    <label htmlFor="transcript">Transcript:</label>
-                    <input
-                        type="text"
-                        id="transcript"
-                        name="transcript"
-                        value={transcript}
-                        onChange={handleInputTranscript}
-                    />
-                    <p className="text-red">{errorMessageTranscript}</p>
+                <label htmlFor="transcript">Transcript:</label>
+                <input
+                    type="text"
+                    id="transcript"
+                    name="transcript"
+                    value={transcript}
+                    onChange={handleInputTranscript}
+                />
+                <p className="text-red">{errorMessageTranscript}</p>
                 {/* </div> */}
                 <div className={styles.buttonsContainer}>
                     <button

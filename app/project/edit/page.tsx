@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./edit.module.css";
 import { SyntheticEvent, useEffect, useState } from "react";
 import backIcon from "@/public/back.svg";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 import useAuth from "@/app/lib/userContext";
 import useProject from "@/app/lib/projectContext";
 import { useRouter } from "next/navigation";
@@ -16,21 +16,21 @@ export default function Page() {
     const [episode, setEpisode] = useState<IEpisode | null>(null);
     const [initialTranscript, setInitialTranscript] = useState("");
     const [triggerFetch, setTriggerFetch] = useState(true);
-    const {user, isAuthenticated, logout} = useAuth();
-    const {project} = useProject();
+    const { user, isAuthenticated, logout } = useAuth();
+    const { project } = useProject();
     const router = useRouter();
 
-    useEffect(()=>{
-        if(!isAuthenticated()){
+    useEffect(() => {
+        if (!isAuthenticated()) {
             router.push("/");
         }
         if (!project) {
             router.push("/dashboard");
         }
-        if(!project?.currentEpisode){
+        if (!project?.currentEpisode) {
             router.push("/project");
         }
-    },[])
+    }, []);
 
     useEffect(() => {
         async function getPageData() {
@@ -57,12 +57,10 @@ export default function Page() {
         }
     }, [triggerFetch]);
 
-
-
-    async function handleSubmit(e:SyntheticEvent){
+    async function handleSubmit(e: SyntheticEvent) {
         try {
             e.preventDefault();
-            if(!episode){
+            if (!episode) {
                 toast.error("No Episode");
                 router.push("/project");
                 return;
@@ -80,9 +78,8 @@ export default function Page() {
             }
             console.error(err);
             toast.error(err.message);
-        } 
+        }
     }
-
 
     // const data =
     const view = (
@@ -101,10 +98,10 @@ export default function Page() {
                 value={episode?.transcript}
                 name="transcript"
                 onChange={(e) => {
-                    if(!episode) return;
+                    if (!episode) return;
                     setEpisode({
                         ...episode,
-                        transcript:e.target.value
+                        transcript: e.target.value,
                     });
                 }}
             />
@@ -115,7 +112,11 @@ export default function Page() {
         <div className={styles.outlet}>
             <div className={styles.header}>
                 <div className={styles.heading}>
-                    <Image src={backIcon} alt="back" onClick={()=>router.back()}></Image>
+                    <Image
+                        src={backIcon}
+                        alt="back"
+                        onClick={() => router.back()}
+                    ></Image>
                     <h1>Edit Transcript</h1>
                 </div>
                 <div className={styles.buttons}>
@@ -125,10 +126,10 @@ export default function Page() {
                         <>
                             <button
                                 onClick={() => {
-                                    if(!episode) return;
+                                    if (!episode) return;
                                     setEpisode({
                                         ...episode,
-                                        transcript:initialTranscript
+                                        transcript: initialTranscript,
                                     });
                                     setEditing(false);
                                 }}
@@ -137,7 +138,9 @@ export default function Page() {
                                 Discard
                             </button>
                             <button
-                                onClick={(e)=>{handleSubmit(e)}}
+                                onClick={(e) => {
+                                    handleSubmit(e);
+                                }}
                             >
                                 Save
                             </button>

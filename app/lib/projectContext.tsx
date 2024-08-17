@@ -13,20 +13,27 @@ import { usePathname, useRouter } from "next/navigation";
 // import { loginService, logoutService, signupService } from "./authServices";
 
 export interface IProject {
-    _id:string,
-    title:string,
-    hasEpisodes:boolean,
-    currentEpisode:string
+    _id: string;
+    title: string;
+    hasEpisodes: boolean;
+    currentEpisode: string;
 }
 
 interface ProjectContextType {
     project?: IProject;
-    updateProject:(projectId:string, projectTitle:string, hasEpisodes:boolean, currentEpisode:string)=>void;
+    updateProject: (
+        projectId: string,
+        projectTitle: string,
+        hasEpisodes: boolean,
+        currentEpisode: string
+    ) => void;
     loading: boolean;
     error?: any;
 }
 
-const ProjectContext = createContext<ProjectContextType>({} as ProjectContextType);
+const ProjectContext = createContext<ProjectContextType>(
+    {} as ProjectContextType
+);
 
 // Export the provider as we need to wrap the entire app with it
 export function ProjectProvider({
@@ -46,21 +53,17 @@ export function ProjectProvider({
         if (error) setError(null);
     }, [location]);
 
-  
-
-    useEffect(()=>{
-        if(localStoreUpdate){
+    useEffect(() => {
+        if (localStoreUpdate) {
             const storedUser = localStorage.getItem("project");
-            if(project){
-                localStorage.setItem("project",JSON.stringify(project));
-            }else if(storedUser){
+            if (project) {
+                localStorage.setItem("project", JSON.stringify(project));
+            } else if (storedUser) {
                 localStorage.removeItem("project");
             }
             setLocalStoreUpdate(false);
         }
-        
-    },[localStoreUpdate]);
-
+    }, [localStoreUpdate]);
 
     useEffect(() => {
         const storedProject = localStorage.getItem("project");
@@ -75,19 +78,24 @@ export function ProjectProvider({
                 _id,
                 title,
                 hasEpisodes,
-                currentEpisode:''
+                currentEpisode: "",
             });
         }
         setLoadingInitial(false);
     }, []);
 
-    async function updateProject(projectId:string,projectTitle:string, hasEpisodes:boolean,currentEpisode:string){
+    async function updateProject(
+        projectId: string,
+        projectTitle: string,
+        hasEpisodes: boolean,
+        currentEpisode: string
+    ) {
         setProject({
-            _id:projectId,
-            title:projectTitle,
+            _id: projectId,
+            title: projectTitle,
             hasEpisodes,
-            currentEpisode
-        })
+            currentEpisode,
+        });
         setLocalStoreUpdate(true);
     }
 
@@ -96,15 +104,14 @@ export function ProjectProvider({
             project,
             updateProject,
             loading,
-            error
+            error,
         }),
         [project, loading, error]
     );
 
-    
     return (
         <ProjectContext.Provider value={memoedValue}>
-                {!loadingInitial && children}
+            {!loadingInitial && children}
         </ProjectContext.Provider>
     );
 }

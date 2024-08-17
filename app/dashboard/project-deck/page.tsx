@@ -9,40 +9,38 @@ import { useEffect, useState } from "react";
 import useAuth from "@/app/lib/userContext";
 import { useRouter } from "next/navigation";
 
-
-
 export default function Page() {
     const [projects, setProjects] = useState<any[]>([]);
     const [modalOn, setModalOn] = useState(false);
     const [triggerFetch, setTriggerFetch] = useState(true);
-    const {user, isAuthenticated, logout} = useAuth();
-    const router = useRouter()
+    const { user, isAuthenticated, logout } = useAuth();
+    const router = useRouter();
 
-    useEffect(()=>{
-        if(!isAuthenticated()) router.push("/")
-    },[])
+    useEffect(() => {
+        if (!isAuthenticated()) router.push("/");
+    }, []);
 
-    useEffect(()=>{
-        async function getPageData(){
-            try{
-                const response = await fetchProjectService(user?.token as string);
+    useEffect(() => {
+        async function getPageData() {
+            try {
+                const response = await fetchProjectService(
+                    user?.token as string
+                );
                 setProjects(response.data.projects);
-            }catch(err:any){
+            } catch (err: any) {
                 if (err.status === 403) {
                     await logout();
                 }
             }
         }
-        if(!user?.token) return;
-        if(triggerFetch){
+        if (!user?.token) return;
+        if (triggerFetch) {
             getPageData();
             setTriggerFetch(false);
         }
-    },[triggerFetch])
+    }, [triggerFetch]);
 
-
-
-    if(typeof window !== "undefined"){
+    if (typeof window !== "undefined") {
         document.documentElement.style.overflowY = "auto";
     }
 
@@ -59,17 +57,18 @@ export default function Page() {
                 </div>
 
                 <div className={styles.deck}>
-                    {
-                        projects.map((project) => {
-                            return(
-                                <Project data={project} key={project._id}/>
-                            )
-                        })
-                    }
+                    {projects.map((project) => {
+                        return <Project data={project} key={project._id} />;
+                    })}
                 </div>
             </div>
             {modalOn ? (
-                <CreateProjectModal onModalCancel={toggleModal} triggerFetch={()=>{setTriggerFetch(true)}} />
+                <CreateProjectModal
+                    onModalCancel={toggleModal}
+                    triggerFetch={() => {
+                        setTriggerFetch(true);
+                    }}
+                />
             ) : (
                 <></>
             )}

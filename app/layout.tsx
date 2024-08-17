@@ -18,9 +18,7 @@ export default function RootLayout({
             >
                 <ToastProvider>
                     <AuthProvider>
-                        <ProjectProvider>
-                            {children}
-                        </ProjectProvider>
+                        <ProjectProvider>{children}</ProjectProvider>
                     </AuthProvider>
                 </ToastProvider>
             </body>

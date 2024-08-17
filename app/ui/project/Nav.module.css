@@ -1,11 +1,11 @@
-.outerContainer{
+.outerContainer {
     display: flex;
     width: 100%;
     justify-content: space-between;
     padding: 3.5rem 3.5rem 0 3.5rem;
 }
 
-.breadCrumb{
+.breadCrumb {
     display: inherit;
     align-items: center;
     color: #999999;
@@ -13,26 +13,26 @@
     font-size: 1.5rem;
 }
 
-.breadCrumb span{
+.breadCrumb span {
     display: inherit;
     align-items: center;
     gap: 0.3rem;
 }
 
-.breadCrumb svg{
+.breadCrumb svg {
     width: 25px;
 }
 
-.option{
+.option {
     color: var(--accent-text-color);
 }
 
-.buttons{
+.buttons {
     display: flex;
     gap: 1rem;
 }
 
-.button{
+.button {
     background-color: #fff;
     padding: 0.8rem;
     height: fit-content;

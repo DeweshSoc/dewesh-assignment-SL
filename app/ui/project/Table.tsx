@@ -4,7 +4,7 @@ import shareIcon from "@/public/share.svg";
 import { useRouter } from "next/navigation";
 import useAuth from "@/app/lib/userContext";
 import useProject from "@/app/lib/projectContext";
-import {toast  } from "react-toastify"
+import { toast } from "react-toastify";
 import { deleteEpisodeService } from "@/app/lib/dataServices";
 
 export interface Header {
@@ -29,14 +29,14 @@ export interface Row {
 export default function Table({
     headers,
     rows,
-    triggerReload
+    triggerReload,
 }: {
     headers: Header[];
     rows: Row[];
-    triggerReload:Function
+    triggerReload: Function;
 }) {
     const router = useRouter();
-    const {user, logout} = useAuth();
+    const { user, logout } = useAuth();
     const { project, updateProject } = useProject();
 
     function handleView(metaData: any) {
@@ -49,14 +49,14 @@ export default function Table({
         router.push("/project/edit");
     }
 
-    async function handleDelete(metaData:any){
+    async function handleDelete(metaData: any) {
         try {
             if (!metaData || !metaData._id) {
                 toast.error("No Episode");
                 router.push("/project");
                 return;
             }
-            
+
             const response = await deleteEpisodeService(
                 metaData._id,
                 project?._id as string,
@@ -70,7 +70,7 @@ export default function Table({
             }
             console.error(err);
             toast.error(err.message);
-        } 
+        }
     }
 
     return (
@@ -123,9 +123,12 @@ export default function Table({
                                     >
                                         View
                                     </button>
-                                    <button className="btn-cancel" onClick={()=>{
-                                        handleDelete(row.metaData);
-                                    }}>
+                                    <button
+                                        className="btn-cancel"
+                                        onClick={() => {
+                                            handleDelete(row.metaData);
+                                        }}
+                                    >
                                         Delete
                                     </button>
                                 </div>

@@ -1,21 +1,21 @@
-.deckContainer{
+.deckContainer {
     margin-top: 6rem;
     padding: 0rem 6rem;
 }
-.headerBar{
+.headerBar {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.headerBar h2{
+.headerBar h2 {
     color: var(--accent-text-color);
     font-size: 2.8rem;
     font-weight: 700;
 }
 
-.deck{
+.deck {
     display: flex;
     flex-wrap: wrap;
     gap: 1.33%;

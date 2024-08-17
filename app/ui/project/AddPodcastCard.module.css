@@ -1,4 +1,4 @@
-.cardContainer{
+.cardContainer {
     display: flex;
     width: 32%;
     background-color: #fff;
@@ -10,8 +10,7 @@
     cursor: pointer;
 }
 
-
-.cardContainer div{
+.cardContainer div {
     display: flex;
     flex-direction: column;
     width: 65%;
@@ -20,10 +19,7 @@
     color: #676767;
 }
 
-.title{
+.title {
     font-size: 2.1rem;
     color: #000;
 }
-
-
-

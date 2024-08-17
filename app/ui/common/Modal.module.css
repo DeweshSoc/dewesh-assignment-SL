@@ -1,6 +1,6 @@
-.outerContainer{
+.outerContainer {
     align-items: center;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -12,7 +12,7 @@
     left: 0;
 }
 
-.modalContainer{
+.modalContainer {
     background-color: var(--background-color);
     border-radius: 10px;
     font-family: var(--font-roboto);

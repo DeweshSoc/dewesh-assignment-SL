@@ -1,4 +1,4 @@
-.projectContainer{
+.projectContainer {
     border: 1.19px #999999 solid;
     border-radius: 26px;
     cursor: pointer;
@@ -9,10 +9,10 @@
     padding: 0.8rem;
 }
 
-.avatar{
+.avatar {
     width: 33.33%;
     aspect-ratio: 1/1;
-    background-color: #F8A01D;
+    background-color: #f8a01d;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,7 +22,7 @@
     border-radius: 18px;
 }
 
-.details{
+.details {
     display: inherit;
     flex-direction: column;
     color: var(--light-text-hex);
@@ -30,14 +30,14 @@
     justify-content: flex-end;
 }
 
-.details div{
+.details div {
     display: inherit;
     flex-direction: column;
     justify-content: center;
     height: 100%;
 }
 
-.projectTitle{
+.projectTitle {
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--accent-text-color);

@@ -29,7 +29,7 @@ export const sendPostRequest = (
             const response = res.json();
             resolve(response);
         } catch (err) {
-            console.error(err)
+            console.error(err);
             reject(err);
         }
     });
@@ -66,7 +66,7 @@ export const sendPostRequestAuth = (
             const response = res.json();
             resolve(response);
         } catch (err) {
-            console.error(err)
+            console.error(err);
             reject(err);
         }
     });
@@ -98,7 +98,7 @@ export const sendGetRequest = (
             const response = res.json();
             resolve(response);
         } catch (err) {
-            console.error(err)
+            console.error(err);
             reject(err);
         }
     });

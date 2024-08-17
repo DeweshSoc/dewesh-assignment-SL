@@ -1,151 +1,114 @@
 :root {
-  --max-width: 1240px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+    --max-width: 1240px;
+    --border-radius: 12px;
+    --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+        "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+        "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-  --foreground-rgb: 0, 0, 0;
-  --dark-text-rgb: 255, 255, 255;
-  --light-text-rgb: 0, 0, 0;
-  --light-text-hex:#3C3C3C;
-  --accent-text-color: #7E22CE; 
-  --background-color: #F5F6FA;
-
-
-
+    --foreground-rgb: 0, 0, 0;
+    --dark-text-rgb: 255, 255, 255;
+    --light-text-rgb: 0, 0, 0;
+    --light-text-hex: #3c3c3c;
+    --accent-text-color: #7e22ce;
+    --background-color: #f5f6fa;
 }
-/* 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
-} */
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
-  color: rgb(var(--light-text-hex));
-  background-color: var(--background-color);
-  font-family: var(--font-roboto);
+    color: rgb(var(--light-text-hex));
+    background-color: var(--background-color);
+    font-family: var(--font-roboto);
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
-.link{
-  color: #085FCE;
+.link {
+    color: #085fce;
 }
 
-.btn{
-  cursor: pointer;
-  padding: 0.8rem;
-  font-size: 1rem;
-  border:none;
-  border-radius: 8px;
-  font-family: var(--font-roboto);
+.btn {
+    cursor: pointer;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-roboto);
 }
 
-.btn-primary{
-  background-color: var(--accent-text-color);
-  color: #fff;
-  font-weight: 700;
+.btn-primary {
+    background-color: var(--accent-text-color);
+    color: #fff;
+    font-weight: 700;
 }
 
-.btn-round{
-  border-radius: 40px;
-  padding: 0.5rem 1rem;
+.btn-round {
+    border-radius: 40px;
+    padding: 0.5rem 1rem;
 }
 
-.btn-pending{
-  border: 1px solid #BB7A1F;
-  color:#B87A1F;
-  background-color: #FFE091;
-  font-weight: 700;
+.btn-pending {
+    border: 1px solid #bb7a1f;
+    color: #b87a1f;
+    background-color: #ffe091;
+    font-weight: 700;
 }
 
-.btn-done{
-  border: 1px solid #7E23CD;
-  color:#7E23CD;
-  background-color: #DFBAFF;
-  font-weight: 700;
+.btn-done {
+    border: 1px solid #7e23cd;
+    color: #7e23cd;
+    background-color: #dfbaff;
+    font-weight: 700;
 }
 
-.btn-cancel{
-  background-color: transparent !important;
-  color: #e74946 !important;
+.btn-cancel {
+    background-color: transparent !important;
+    color: #e74946 !important;
 }
 
-.btn-outline-cancel{
-  border: 1px solid #e74946 !important;
+.btn-outline-cancel {
+    border: 1px solid #e74946 !important;
 }
 
-.btn-outline-cancel:hover{
-  cursor: pointer;
-  background-color: #e74946 !important;
-  color: #fff !important;
+.btn-outline-cancel:hover {
+    cursor: pointer;
+    background-color: #e74946 !important;
+    color: #fff !important;
 }
 
-.btn-transparent{
-  background-color: transparent;
+.btn-transparent {
+    background-color: transparent;
 }
 
-.text-red{
-  color:#e74946;
+.text-red {
+    color: #e74946;
 }
 
-.text-stale{
-  color: #969696;
+.text-stale {
+    color: #969696;
 }
 
-.bar{
-  height: 0;
-  border:1.66px solid #CCCCCC
-  
+.bar {
+    height: 0;
+    border: 1.66px solid #cccccc;
 }
-
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+    html {
+        color-scheme: dark;
+    }
 }

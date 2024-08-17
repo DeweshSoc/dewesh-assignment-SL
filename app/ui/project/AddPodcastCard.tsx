@@ -1,16 +1,21 @@
-import Image from "next/image"
-import styles from "./AddPodcastCard.module.css"
+import Image from "next/image";
+import styles from "./AddPodcastCard.module.css";
 
-
-export interface ICard{
-    title:string,
-    subtitle:string,
-    icon:any,
-    altText:string,
-    id:number
+export interface ICard {
+    title: string;
+    subtitle: string;
+    icon: any;
+    altText: string;
+    id: number;
 }
 
-export default function AddPodcastCard({data, onClick}:{data:ICard, onClick:any}){
+export default function AddPodcastCard({
+    data,
+    onClick,
+}: {
+    data: ICard;
+    onClick: any;
+}) {
     return (
         <div onClick={onClick} className={styles.cardContainer}>
             <div>
@@ -19,5 +24,5 @@ export default function AddPodcastCard({data, onClick}:{data:ICard, onClick:any}
             </div>
             <Image src={data.icon} alt={data.altText}></Image>
         </div>
-    )
+    );
 }

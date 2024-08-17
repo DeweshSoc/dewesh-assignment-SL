@@ -1,8 +1,8 @@
-import styles from "./Modal.module.css"
+import styles from "./Modal.module.css";
 
 export function Modal({
     modalTitle,
-    children
+    children,
 }: {
     modalTitle: string;
     children: React.ReactNode;

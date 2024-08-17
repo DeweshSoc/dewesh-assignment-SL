@@ -1,7 +1,6 @@
 import { API_ENDPOINTS } from "../_constants";
 import { sendPostRequestAuth, sendGetRequestAuth } from "./httpRequests";
 
-
 export interface IEpisode {
     _id: string;
     user: string;
@@ -13,9 +12,6 @@ export interface IEpisode {
     createdAt: Date;
     updatedAt: Date;
 }
-
-
-
 
 export async function createProjectService(
     projectTitle: string,
@@ -76,7 +72,6 @@ export async function createEpisodeService(
     }
 }
 
-
 export async function fetchProjectService(token: string): Promise<any> {
     try {
         const projects = await sendGetRequestAuth(
@@ -115,13 +110,13 @@ export async function fetchEpisodeService(
 
 export async function fetchEpisodeByIdService(
     projectId: string,
-    episodeId:string,
+    episodeId: string,
     token: string
 ): Promise<any> {
     try {
         const body = JSON.stringify({
             projectId,
-            episodeId
+            episodeId,
         });
         const projects = await sendPostRequestAuth(
             API_ENDPOINTS.POST_FETCH_EPISODE_BY_ID,
@@ -137,10 +132,9 @@ export async function fetchEpisodeByIdService(
     }
 }
 
-
 export async function updateEpisodeService(
     episode: IEpisode,
-    projectId:string,
+    projectId: string,
     token: string
 ): Promise<any> {
     try {
@@ -174,7 +168,7 @@ export async function updateEpisodeService(
 }
 export async function deleteEpisodeService(
     episodeId: string,
-    projectId:string,
+    projectId: string,
     token: string
 ): Promise<any> {
     try {
@@ -205,7 +199,7 @@ export async function deleteEpisodeService(
 }
 
 export async function updateUserService(
-    username:string,
+    username: string,
     token: string
 ): Promise<any> {
     try {
@@ -216,7 +210,7 @@ export async function updateUserService(
             API_ENDPOINTS.POST_UPDATE_USER,
             {
                 body: JSON.stringify({
-                    username
+                    username,
                 }),
                 token,
             }
@@ -228,4 +222,3 @@ export async function updateUserService(
         throw err;
     }
 }
-

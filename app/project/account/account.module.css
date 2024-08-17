@@ -1,4 +1,4 @@
-.outlet{
+.outlet {
     display: flex;
     flex-direction: column;
     margin-top: 1.8rem;
@@ -6,36 +6,35 @@
     height: 100%;
 }
 
-.header{
+.header {
     display: flex;
     justify-content: space-between;
 }
 
-.heading{
+.heading {
     display: flex;
     gap: 1rem;
 }
 
-.outlet h1{
+.outlet h1 {
     font-size: 2.9rem;
     font-weight: 500;
 }
 
-.settings{
+.settings {
     margin: 4.5rem 0;
     display: flex;
     gap: 2rem;
     align-items: center;
 }
 
-
-.settings div{
+.settings div {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.settings div input{
+.settings div input {
     padding: 0.8rem;
     border: 1px solid #999999;
     border-radius: 8px;
@@ -43,15 +42,15 @@
     font-size: 1rem;
 }
 
-.settings button{
-    justify-self: flex-end
+.settings button {
+    justify-self: flex-end;
 }
 
-.banner{
+.banner {
     margin-top: 2rem;
-    background: linear-gradient(90.02deg, #FFFFFF 0.95%, #EDD9FF 99.9%);
-    padding: 1rem 5rem 1rem 2rem ;
-    border: 0.61px solid #7E22CE;
+    background: linear-gradient(90.02deg, #ffffff 0.95%, #edd9ff 99.9%);
+    padding: 1rem 5rem 1rem 2rem;
+    border: 0.61px solid #7e22ce;
     border-radius: 13px;
     display: flex;
     align-items: center;
@@ -61,7 +60,6 @@
     font-size: 1.5rem;
 }
 
-
-.banner button{
-    padding: 1rem 3rem ;
+.banner button {
+    padding: 1rem 3rem;
 }

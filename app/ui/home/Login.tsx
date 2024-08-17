@@ -13,7 +13,7 @@ export function Login() {
                     Welcome to <br /> <span>Ques.AI</span>
                 </p>
             </div>
-            <LoginForm/>
+            <LoginForm />
         </div>
     );
 }

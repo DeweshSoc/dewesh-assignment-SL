@@ -1,4 +1,4 @@
-.contentBtn{
+.contentBtn {
     align-items: center;
     border-radius: 7px;
     background-color: #211935;
@@ -15,6 +15,6 @@
     transition: ease 120ms;
 }
 
-.contentBtn:hover{
+.contentBtn:hover {
     background-color: var(--accent-text-color);
 }

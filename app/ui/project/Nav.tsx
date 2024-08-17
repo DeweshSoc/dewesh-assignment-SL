@@ -13,21 +13,21 @@ export default function Nav({
     projectTitle: string;
     currentOption: string;
 }) {
-
-    const {logout} = useAuth();
+    const { logout } = useAuth();
 
     return (
         <div className={styles.outerContainer}>
             <div className={styles.breadCrumb}>
                 <span>
-                    {allSvgs.home} Home Page / {projectTitle} / <span className={styles.option}>{currentOption}</span>
+                    {allSvgs.home} Home Page / {projectTitle} /{" "}
+                    <span className={styles.option}>{currentOption}</span>
                 </span>
             </div>
             <div className={styles.buttons}>
                 <div className={styles.button}>
                     <Image src={bellIcon} alt="notification"></Image>
                 </div>
-                <div className={styles.button} onClick={()=>logout()}>
+                <div className={styles.button} onClick={() => logout()}>
                     <Image src={logoutIcon} alt="logout button"></Image>
                 </div>
             </div>

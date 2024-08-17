@@ -84,7 +84,9 @@ export default function Page() {
                     />
                 </div>
                 {editing ? (
-                    <button className="btn btn-primary" onClick={handleSubmit}>Save</button>
+                    <button className="btn btn-primary" onClick={handleSubmit}>
+                        Save
+                    </button>
                 ) : (
                     <></>
                 )}

@@ -1,62 +1,61 @@
-import localFont from 'next/font/local'
+import localFont from "next/font/local";
 
 export const jakartaSans = localFont({
     src: [
         {
             path: "./fonts/PlusJakartaSans-Light.woff2",
-            weight:"300",
-            style:"normal",
+            weight: "300",
+            style: "normal",
         },
         {
             path: "./fonts/PlusJakartaSans-Regular.woff2",
-            weight:"400",
-            style:"normal",
+            weight: "400",
+            style: "normal",
         },
         {
             path: "./fonts/PlusJakartaSans-Medium.woff2",
-            weight:"500",
-            style:"normal"
+            weight: "500",
+            style: "normal",
         },
     ],
-    variable: '--font-jakarta'
+    variable: "--font-jakarta",
 });
 
 export const poppins = localFont({
-    src:[
+    src: [
         {
-            path:"./fonts/Poppins-Thin.woff2",
-            weight:"100",
-            style:"normal"
+            path: "./fonts/Poppins-Thin.woff2",
+            weight: "100",
+            style: "normal",
         },
         {
-            path:"./fonts/Poppins-Light.woff2",
-            weight:"300",
-            style:"normal"
+            path: "./fonts/Poppins-Light.woff2",
+            weight: "300",
+            style: "normal",
         },
         {
-            path:"./fonts/Poppins-Regular.woff2",
-            weight:"400",
-            style:"normal"
+            path: "./fonts/Poppins-Regular.woff2",
+            weight: "400",
+            style: "normal",
         },
         {
-            path:"./fonts/Poppins-Medium.woff2",
-            weight:"500",
-            style:"normal"
+            path: "./fonts/Poppins-Medium.woff2",
+            weight: "500",
+            style: "normal",
         },
         {
-            path:"./fonts/Poppins-Bold.woff2",
-            weight:"700",
-            style:"normal"
+            path: "./fonts/Poppins-Bold.woff2",
+            weight: "700",
+            style: "normal",
         },
         {
-            path:"./fonts/Poppins-Black.woff2",
-            weight:"900",
-            style:"normal"
+            path: "./fonts/Poppins-Black.woff2",
+            weight: "900",
+            style: "normal",
         },
     ],
-    variable: '--font-poppins'
-})
-
+    variable: "--font-poppins",
+});
 
 export const roboto = localFont({
     src: [
@@ -91,5 +90,5 @@ export const roboto = localFont({
             style: "normal",
         },
     ],
-    variable: '--font-roboto'
+    variable: "--font-roboto",
 });

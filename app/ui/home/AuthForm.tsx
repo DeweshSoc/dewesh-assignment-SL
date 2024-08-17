@@ -16,18 +16,17 @@ export function LoginForm() {
     const [password, setPassword] = useState("");
     const currentPath = usePathname();
     const router = useRouter();
-    const {loading, login, error} = useAuth();
-
+    const { loading, login, error } = useAuth();
 
     // handlers
 
-    async function handleSignup(e : SyntheticEvent) {
-        try{    
+    async function handleSignup(e: SyntheticEvent) {
+        try {
             e.preventDefault();
-            const response = await signupService(email,password);
-            toast.success(`${response?.message || 'Signup successful'}`);
+            const response = await signupService(email, password);
+            toast.success(`${response?.message || "Signup successful"}`);
             router.push("/");
-        }catch(err:any){
+        } catch (err: any) {
             console.error(err);
             toast.error(err.message);
         }
@@ -36,13 +35,13 @@ export function LoginForm() {
     async function handleLogin(e: SyntheticEvent) {
         try {
             e.preventDefault();
-            await login(email,password);
+            await login(email, password);
             // if(error) throw error;
             toast.success("Login successful");
         } catch (err: any) {
             console.error(err);
             toast.error(err.message);
-        }   
+        }
     }
 
     const loginBtn = (
