@@ -1,23 +1,22 @@
 :root {
-    --max-width: 1240px;
+    --accent-text-color: #7e22ce;
+    --background-color: #f5f6fa;
     --border-radius: 12px;
+    --dark-text-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --light-text-hex: #3c3c3c;
+    --light-text-rgb: 0, 0, 0;
+    --max-width: 1240px;
+
     --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
         "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
         "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-
-    --foreground-rgb: 0, 0, 0;
-    --dark-text-rgb: 255, 255, 255;
-    --light-text-rgb: 0, 0, 0;
-    --light-text-hex: #3c3c3c;
-    --accent-text-color: #7e22ce;
-    --background-color: #f5f6fa;
 }
-
 
 * {
     box-sizing: border-box;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 html,
@@ -27,8 +26,8 @@ body {
 }
 
 body {
-    color: rgb(var(--light-text-hex));
     background-color: var(--background-color);
+    color: rgb(var(--light-text-hex));
     font-family: var(--font-roboto);
 }
 
@@ -42,12 +41,12 @@ a {
 }
 
 .btn {
-    cursor: pointer;
-    padding: 0.8rem;
-    font-size: 1rem;
     border: none;
     border-radius: 8px;
+    cursor: pointer;
     font-family: var(--font-roboto);
+    font-size: 1rem;
+    padding: 0.8rem;
 }
 
 .btn-primary {
@@ -62,16 +61,16 @@ a {
 }
 
 .btn-pending {
+    background-color: #ffe091;
     border: 1px solid #bb7a1f;
     color: #b87a1f;
-    background-color: #ffe091;
     font-weight: 700;
 }
 
 .btn-done {
+    background-color: #dfbaff;
     border: 1px solid #7e23cd;
     color: #7e23cd;
-    background-color: #dfbaff;
     font-weight: 700;
 }
 
@@ -85,9 +84,9 @@ a {
 }
 
 .btn-outline-cancel:hover {
-    cursor: pointer;
     background-color: #e74946 !important;
     color: #fff !important;
+    cursor: pointer;
 }
 
 .btn-transparent {
@@ -103,8 +102,8 @@ a {
 }
 
 .bar {
-    height: 0;
     border: 1.66px solid #cccccc;
+    height: 0;
 }
 
 @media (prefers-color-scheme: dark) {

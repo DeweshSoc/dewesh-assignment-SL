@@ -1,18 +1,20 @@
 .main {
     display: flex;
     font-family: var(--font-roboto);
+
     /* overflow: hidden; */
 }
 
 .outlet {
+    background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
-    width: 76.7%;
-    padding: 0 1rem;
-    background-color: #f9f9f9;
-    /* overflow: hidden; */
-    margin-left: 23.3%;
     height: 100vh;
+    margin-left: 23.3%;
+    padding: 0 1rem;
+    width: 76.7%;
+
+    /* overflow: hidden; */
 }
 
 .optionOutlet {
@@ -27,7 +29,7 @@
 
 .cards {
     display: flex;
-    width: 100%;
     justify-content: space-between;
     margin-top: 2rem;
+    width: 100%;
 }

@@ -13,9 +13,9 @@
 }
 
 .loginBanner p {
+    color: var(--accent-text-color);
     font-size: 3rem;
     font-weight: 300;
-    color: var(--accent-text-color);
 }
 
 .loginBanner span {

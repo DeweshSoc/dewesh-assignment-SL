@@ -6,7 +6,7 @@
 }
 
 .options {
-    display: inherit;
     align-items: center;
+    display: inherit;
     gap: 1.8rem;
 }

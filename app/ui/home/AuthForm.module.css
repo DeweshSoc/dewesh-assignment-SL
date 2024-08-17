@@ -6,9 +6,9 @@
 
 .loginForm input[type="text"],
 .loginForm input[type="password"] {
-    border-radius: 7.7px;
-    border: solid 1.28px #dbdbdb;
     background-color: var(--background-color);
+    border: solid 1.28px #dbdbdb;
+    border-radius: 7.7px;
     font-size: 1.2rem;
     font-weight: 500;
     margin: 0 0 1.2rem 0;
@@ -37,8 +37,8 @@
 
 .loginBtn {
     background-color: var(--accent-text-color);
-    border-radius: 7.7px;
     border: none;
+    border-radius: 7.7px;
     box-shadow: none;
     color: #ffffff;
     font-size: 1.2rem;
@@ -53,9 +53,9 @@
     cursor: pointer;
 }
 .signupBtn {
-    border-radius: 7.7px;
-    border: 1px solid var(--accent-text-color);
     background-color: transparent;
+    border: 1px solid var(--accent-text-color);
+    border-radius: 7.7px;
     box-shadow: none;
     color: var(--accent-text-color);
     font-size: 1.2rem;
@@ -72,16 +72,16 @@
 }
 
 .baredOr {
-    display: flex;
     align-items: center;
     color: var(--accent-text-color);
+    display: flex;
     justify-content: space-between;
 }
 
 .bar {
+    border-top: 1px solid #ccc;
     height: 0;
     width: 46%;
-    border-top: 1px solid #ccc;
 }
 .or {
     width: 8%;

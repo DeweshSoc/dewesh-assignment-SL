@@ -3,30 +3,30 @@
 }
 
 .tableHeader {
-    display: flex;
-    width: 100%;
     background-color: #ededed;
-    color: #fff;
-    margin-top: 1rem;
-    color: #646464;
-    font-weight: 500;
     border-radius: 10px;
+    color: #fff;
+    color: #646464;
+    display: flex;
+    font-weight: 500;
     justify-content: space-evenly;
+    margin-top: 1rem;
+    width: 100%;
 }
 
 .tableRow {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
     border-bottom: 2px solid #ededed;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 .cell {
-    display: inherit;
     align-items: center;
-    justify-content: center;
-    font-weight: 500;
     color: #646464;
+    display: inherit;
+    font-weight: 500;
+    justify-content: center;
 }
 
 .tableHeader .cell {
@@ -35,8 +35,8 @@
 }
 
 .tableRow .cell {
-    padding: 1.5rem 1rem;
     font-size: 1.3rem;
+    padding: 1.5rem 1rem;
 }
 
 .action {
@@ -45,16 +45,16 @@
 }
 
 .action .buttons button {
-    color: #646464;
-    font-size: 1rem;
-    font-family: var(--font-roboto);
-    font-weight: 500;
-    cursor: pointer;
     background-color: transparent;
-    border-top: 1px solid #c7c7c7;
     border-bottom: 1px solid #c7c7c7;
-    border-right: 1px solid #c7c7c7;
     border-left: none;
+    border-right: 1px solid #c7c7c7;
+    border-top: 1px solid #c7c7c7;
+    color: #646464;
+    cursor: pointer;
+    font-family: var(--font-roboto);
+    font-size: 1rem;
+    font-weight: 500;
     padding: 1rem;
 }
 

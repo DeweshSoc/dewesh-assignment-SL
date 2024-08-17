@@ -1,9 +1,9 @@
 .outlet {
     display: flex;
     flex-direction: column;
+    height: 100%;
     margin-top: 1.8rem;
     padding: 0 3.5rem;
-    height: 100%;
 }
 
 .header {
@@ -22,10 +22,10 @@
 }
 
 .settings {
-    margin: 4.5rem 0;
+    align-items: center;
     display: flex;
     gap: 2rem;
-    align-items: center;
+    margin: 4.5rem 0;
 }
 
 .settings div {
@@ -35,11 +35,11 @@
 }
 
 .settings div input {
-    padding: 0.8rem;
     border: 1px solid #999999;
     border-radius: 8px;
-    min-width: 300px;
     font-size: 1rem;
+    min-width: 300px;
+    padding: 0.8rem;
 }
 
 .settings button {
@@ -47,17 +47,18 @@
 }
 
 .banner {
-    margin-top: 2rem;
+    align-items: center;
     background: linear-gradient(90.02deg, #ffffff 0.95%, #edd9ff 99.9%);
-    padding: 1rem 5rem 1rem 2rem;
     border: 0.61px solid #7e22ce;
     border-radius: 13px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     color: var(--accent-text-color);
-    /* font-weight: 500; */
+    display: flex;
     font-size: 1.5rem;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding: 1rem 5rem 1rem 2rem;
+
+    /* font-weight: 500; */
 }
 
 .banner button {

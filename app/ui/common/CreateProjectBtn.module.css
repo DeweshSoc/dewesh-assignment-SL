@@ -1,14 +1,14 @@
 .contentBtn {
     align-items: center;
-    border-radius: 7px;
     background-color: #211935;
+    border-radius: 7px;
     color: #ffffff;
     cursor: pointer;
     display: flex;
     flex-direction: row;
+    font-family: var(--font-roboto);
     font-size: 1.2rem;
     font-weight: 500;
-    font-family: var(--font-roboto);
     gap: 0.7rem;
     justify-content: space-around;
     padding: 1rem 1.2rem;
