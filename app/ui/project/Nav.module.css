@@ -6,7 +6,6 @@
 }
 
 .breadCrumb {
-    align-items: center;
     color: #999999;
     display: inherit;
     font-size: 1.5rem;
@@ -14,7 +13,6 @@
 }
 
 .breadCrumb span {
-    align-items: center;
     display: inherit;
     gap: 0.3rem;
 }
@@ -40,4 +38,9 @@
     display: flex;
     height: fit-content;
     padding: 0.8rem;
+}
+
+.button img{
+    width: 1.75rem;
+    height: auto;
 }

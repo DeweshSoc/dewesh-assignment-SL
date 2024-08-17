@@ -14,6 +14,13 @@
 .heading {
     display: flex;
     gap: 1rem;
+    align-items: center;
+}
+
+.heading img{
+    width: 3.187rem;
+    height: auto;
+    cursor: pointer;
 }
 
 .outlet h1 {
@@ -38,12 +45,17 @@
     border: 1px solid #999999;
     border-radius: 8px;
     font-size: 1rem;
-    min-width: 300px;
+    min-width: 18.75rem;
     padding: 0.8rem;
 }
 
 .settings button {
     justify-self: flex-end;
+}
+
+.propic{
+    width: 9.437rem;
+    height: auto;
 }
 
 .banner {

@@ -22,7 +22,7 @@ export default function AddPodcastCard({
                 <h2 className={styles.title}>{data.title}</h2>
                 <p className={styles.subtitle}>{data.subtitle}</p>
             </div>
-            <Image src={data.icon} alt={data.altText}></Image>
+            <Image className={styles.icon} src={data.icon} alt={data.altText}></Image>
         </div>
     );
 }

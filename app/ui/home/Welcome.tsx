@@ -11,12 +11,12 @@ export function Welcome() {
                 className={`${styles.page} ${styles.bgGradient} ${styles.yourClass}`}
             >
                 <div className={styles.logoGroup}>
-                    <Image
+                    <Image className={styles.logo1}
                         src={logoIconWhite}
                         alt="brand logo"
                         priority={true}
                     />
-                    <Image src={logoText} alt="brand logo text" />
+                    <Image className={styles.logo2} src={logoText} alt="brand logo text" />
                 </div>
                 <div className={styles.header}>
                     <h1>

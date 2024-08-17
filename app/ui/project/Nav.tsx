@@ -19,8 +19,8 @@ export default function Nav({
         <div className={styles.outerContainer}>
             <div className={styles.breadCrumb}>
                 <span>
-                    {allSvgs.home} Home Page / {projectTitle} /{" "}
-                    <span className={styles.option}>{currentOption}</span>
+                    {allSvgs.home} Home Page / &nbsp;{projectTitle} /
+                    <span className={styles.option}>&nbsp;{currentOption}</span>
                 </span>
             </div>
             <div className={styles.buttons}>

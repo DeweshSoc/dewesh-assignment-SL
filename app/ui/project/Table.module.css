@@ -66,6 +66,11 @@
     border-radius: 0 10px 10px 0;
 }
 
+.shareIcon{
+    width: 1.5rem;
+    height: auto;
+}
+
 .tableCell5 {
     width: 5%;
 }

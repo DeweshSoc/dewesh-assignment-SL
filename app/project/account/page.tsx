@@ -54,13 +54,13 @@ export default function Page() {
         <div className={styles.outlet}>
             <div className={styles.header}>
                 <div className={styles.heading}>
-                    <Image src={backIcon} alt="back"></Image>
+                    <Image src={backIcon} alt="back" onClick={()=>router.back()}></Image>
                     <h1>Account Settings</h1>
                 </div>
             </div>
 
             <div className={styles.settings}>
-                <Image src={propic} alt="profile pic"></Image>
+                <Image className={styles.propic} src={propic} alt="profile pic"></Image>
                 <div>
                     <label htmlFor="username">Username</label>
                     <input

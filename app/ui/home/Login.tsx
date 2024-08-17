@@ -8,7 +8,7 @@ export function Login() {
     return (
         <div className={styles.loginContainer}>
             <div className={styles.loginBanner}>
-                <Image src={logoIconPurple} alt="brand logo" priority={true} />
+                <Image className={styles.logo} src={logoIconPurple} alt="brand logo" priority={true} />
                 <p>
                     Welcome to <br /> <span>Ques.AI</span>
                 </p>

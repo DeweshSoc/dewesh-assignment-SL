@@ -135,7 +135,7 @@ export default function Table({
                             </div>
                         </div>
                         <div className={`${styles.cell} ${styles.tableCell5}`}>
-                            <Image src={shareIcon} alt="share icon" />
+                            <Image className={styles.shareIcon} src={shareIcon} alt="share icon" />
                         </div>
                     </div>
                 );

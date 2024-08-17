@@ -13,13 +13,11 @@ export default function Nav() {
                 <Image src={quesLogo} alt="ques-logo" />
             </div>
             <div className={styles.options}>
-                <Link href="/settings">
-                    {" "}
-                    <Image src={gearIcon} alt="settings-icon" />
+                <Link href="#">
+                    <Image className={styles.settings} src={gearIcon} alt="settings-icon" />
                 </Link>
-                <Link href="/notifications">
-                    {" "}
-                    <Image src={bellIcon} alt="notification-icon" />
+                <Link href="#">
+                    <Image className={styles.notif} src={bellIcon} alt="notification-icon" />
                 </Link>
             </div>
         </div>

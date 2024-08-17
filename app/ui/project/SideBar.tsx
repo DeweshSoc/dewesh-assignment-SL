@@ -56,7 +56,7 @@ export default function SideBar({
         <div className={styles.sideBar}>
             {/* <plusIcon></plusIcon> */}
             <div className={styles.brand}>
-                <Image src={quesLogo} alt="logo"></Image>
+                <Image className={styles.logo} src={quesLogo} alt="logo"></Image>
             </div>
             <div className={styles.options}>
                 {options.map((option) => {

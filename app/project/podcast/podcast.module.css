@@ -1,0 +1,29 @@
+.outlet {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 1.8rem;
+    padding: 0 3.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.heading img {
+    width: 3.187rem;
+    height: auto;
+    cursor: pointer;
+}
+
+.outlet h1 {
+    font-size: 2.9rem;
+    font-weight: 500;
+}

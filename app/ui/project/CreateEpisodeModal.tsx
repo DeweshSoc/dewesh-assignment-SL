@@ -6,6 +6,7 @@ import styles from "./CreateEpisodeModal.module.css";
 import { createEpisodeService } from "@/app/lib/dataServices";
 import useAuth from "@/app/lib/userContext";
 import useProject from "@/app/lib/projectContext";
+import yt2 from "@/public/yt2.svg"
 
 export default function CreateEpisodeModal({
     onModalCancel,
@@ -88,7 +89,7 @@ export default function CreateEpisodeModal({
     }
 
     return (
-        <Modal modalTitle="Upload from Youtube">
+        <Modal modalTitle="Upload from Youtube" icon={yt2}>
             <div className={styles.modalContent}>
                 {/* <div> */}
                 <label htmlFor="episodeName">Name:</label>

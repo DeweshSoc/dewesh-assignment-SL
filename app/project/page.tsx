@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import styles from "./page.module.css";
 import AddPodcastCard, { ICard } from "../ui/project/AddPodcastCard";
 import CreateEpisodeModal from "../ui/project/CreateEpisodeModal";
@@ -8,6 +9,7 @@ import { fetchEpisodeService } from "../lib/dataServices";
 
 import feedIcon from "@/public/feed.svg";
 import youtubeIcon from "@/public/yt.svg";
+import backIcon from "@/public/back.svg";
 import uploadIcon from "@/public/upload.svg";
 import Upload from "../ui/project/Upload";
 import useAuth from "../lib/userContext";
@@ -82,7 +84,14 @@ export default function Page() {
 
     return (
         <div className={styles.optionOutlet}>
-            <h1>Add Podcast</h1>
+            <div className={styles.heading}>
+                <Image
+                    src={backIcon}
+                    alt="back"
+                    onClick={() => router.back()}
+                ></Image>
+                <h1>Add Podcast</h1>
+            </div>
             <div className={styles.cards}>
                 {cardData.map((card) => {
                     return (

@@ -35,7 +35,7 @@ export default function Page() {
         <main>
             <div className={styles.content}>
                 <h1>Create a New Project</h1>
-                <Image src={podcast} alt="podcast image" />
+                <Image className={styles.podcast} src={podcast} alt="podcast image" />
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna

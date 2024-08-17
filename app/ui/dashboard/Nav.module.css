@@ -5,8 +5,23 @@
     padding: 4rem 6rem 0rem 6rem;
 }
 
+.brand img{
+    width: 16.75rem;
+    height: auto;
+}
+
 .options {
     align-items: center;
     display: inherit;
     gap: 1.8rem;
+}
+
+.settings {
+    width: 3.375rem;
+    height: auto;
+}
+
+.notif {
+    width: 4rem;
+    height: auto;
 }

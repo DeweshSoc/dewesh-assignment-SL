@@ -27,6 +27,19 @@
     font-weight: 500;
 }
 
+.heading {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.heading img{
+    width: 3.187rem;
+    height: auto;
+    cursor: pointer;
+}
+
+
 .cards {
     display: flex;
     justify-content: space-between;

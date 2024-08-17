@@ -18,3 +18,8 @@
 .contentBtn:hover {
     background-color: var(--accent-text-color);
 }
+
+.plus{
+    width: 2.25rem;
+    height: auto;
+}

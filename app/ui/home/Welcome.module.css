@@ -1,18 +1,17 @@
 .page {
     align-items: flex-start;
+    background: url("/welcome_bg.svg"), 
+        linear-gradient(
+            45deg,
+            rgba(90, 36, 130, 1) 0%,
+            rgba(173, 70, 226, 1) 100%
+        );
     background-size: cover;
     display: inherit;
     flex-direction: column;
     padding: 4rem 0 0 5.2rem;
     width: 66%;
     z-index: 2;
-
-background: url("/welcome_bg.svg"),
-        linear-gradient(
-            45deg,
-            rgba(90, 36, 130, 1) 0%,
-            rgba(173, 70, 226, 1) 100%
-        );
 }
 
 .logoGroup {
@@ -20,6 +19,16 @@ background: url("/welcome_bg.svg"),
     display: flex;
     gap: 10px;
     padding: 1rem;
+}
+
+.logo1{
+    width: 3.625rem;
+    height: auto;
+}
+
+.logo2{
+    width: 12.375rem;
+    height: auto;
 }
 
 .header {

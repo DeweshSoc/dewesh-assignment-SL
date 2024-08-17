@@ -10,7 +10,7 @@ export default function CreateProjectBtn({
 }) {
     return (
         <div className={styles.contentBtn} onClick={onModalToggle}>
-            <Image src={plusIcon} alt="plus-btn" />
+            <Image className={styles.plus} src={plusIcon} alt="plus-btn" />
             <span>Create New Project</span>
         </div>
     );

@@ -14,7 +14,8 @@
     /* padding: 0 3.5rem; */
 }
 .brand img {
-    width: 60%;
+    width: 11.8rem;
+    height: auto;
 }
 
 .options {    
@@ -68,6 +69,11 @@
     gap: 0.5rem;
     margin-top: 2rem;
     padding: 0 1rem;
+}
+
+.user img{
+    width: 2.937rem;
+    height: auto;
 }
 
 .userInfo {
