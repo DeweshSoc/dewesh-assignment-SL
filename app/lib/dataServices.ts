@@ -147,6 +147,9 @@ export async function updateEpisodeService(
         if (!episode) {
             throw new Error("Missing Episode");
         }
+        if (!projectId) {
+            throw new Error("Missing project id");
+        }
 
         if (!episode.transcript) {
             throw new Error("Missing transcript");
@@ -157,6 +160,37 @@ export async function updateEpisodeService(
             {
                 body: JSON.stringify({
                     episode,
+                    projectId,
+                }),
+                token,
+            }
+        );
+
+        return response;
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+}
+export async function deleteEpisodeService(
+    episodeId: string,
+    projectId:string,
+    token: string
+): Promise<any> {
+    try {
+        if (!episodeId) {
+            throw new Error("Missing Episode id");
+        }
+
+        if (!projectId) {
+            throw new Error("Missing project id");
+        }
+
+        const response = await sendPostRequestAuth(
+            API_ENDPOINTS.POST_DELETE_EPISODE,
+            {
+                body: JSON.stringify({
+                    episodeId,
                     projectId,
                 }),
                 token,

@@ -4,6 +4,8 @@ import shareIcon from "@/public/share.svg";
 import { useRouter } from "next/navigation";
 import useAuth from "@/app/lib/userContext";
 import useProject from "@/app/lib/projectContext";
+import {toast  } from "react-toastify"
+import { deleteEpisodeService } from "@/app/lib/dataServices";
 
 export interface Header {
     title: string;
@@ -27,15 +29,17 @@ export interface Row {
 export default function Table({
     headers,
     rows,
+    triggerReload
 }: {
     headers: Header[];
     rows: Row[];
+    triggerReload:Function
 }) {
     const router = useRouter();
+    const {user, logout} = useAuth();
     const { project, updateProject } = useProject();
 
     function handleView(metaData: any) {
-        console.log(metaData);
         updateProject(
             project?._id as string,
             project?.title as string,
@@ -43,6 +47,30 @@ export default function Table({
             metaData._id
         );
         router.push("/project/edit");
+    }
+
+    async function handleDelete(metaData:any){
+        try {
+            if (!metaData || !metaData._id) {
+                toast.error("No Episode");
+                router.push("/project");
+                return;
+            }
+            
+            const response = await deleteEpisodeService(
+                metaData._id,
+                project?._id as string,
+                user?.token as string
+            );
+            toast.success(`${response?.message}`);
+            triggerReload();
+        } catch (err: any) {
+            if (err.status === 403) {
+                await logout();
+            }
+            console.error(err);
+            toast.error(err.message);
+        } 
     }
 
     return (
@@ -95,7 +123,9 @@ export default function Table({
                                     >
                                         View
                                     </button>
-                                    <button className="btn-cancel">
+                                    <button className="btn-cancel" onClick={()=>{
+                                        handleDelete(row.metaData);
+                                    }}>
                                         Delete
                                     </button>
                                 </div>

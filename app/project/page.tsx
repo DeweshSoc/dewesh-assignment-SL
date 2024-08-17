@@ -83,23 +83,40 @@ export default function Page(){
     }
 
 
-    return(
+    return (
         <div className={styles.optionOutlet}>
-
             <h1>Add Podcast</h1>
             <div className={styles.cards}>
-                {cardData.map(card=>{
-                    return <AddPodcastCard key={card.id} data={card} onClick={()=>{toggleModal()}}/>
+                {cardData.map((card) => {
+                    return (
+                        <AddPodcastCard
+                            key={card.id}
+                            data={card}
+                            onClick={() => {
+                                toggleModal();
+                            }}
+                        />
+                    );
                 })}
             </div>
-            <Upload episodes={episode}/>
+            <Upload
+                episodes={episode}
+                trigger={() => {
+                    setTriggerFetch(true);
+                }}
+            />
 
             {modalOn ? (
-                <CreateEpisodeModal onModalCancel={toggleModal} triggerFetch={()=>{setTriggerFetch(true)}}/>
+                <CreateEpisodeModal
+                    onModalCancel={toggleModal}
+                    triggerFetch={() => {
+                        setTriggerFetch(true);
+                    }}
+                />
             ) : (
                 <></>
             )}
-
         </div>
-    )
+    );
 }
+

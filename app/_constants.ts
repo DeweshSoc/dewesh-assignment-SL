@@ -8,5 +8,6 @@ export const API_ENDPOINTS = {
     POST_EPISODE_CREATE:"/episode/create",
     POST_FETCH_EPISODES:"/episode/all",
     POST_FETCH_EPISODE_BY_ID:"/episode",
-    POST_UPDATE_EPISODE:"/episode/update"
+    POST_UPDATE_EPISODE:"/episode/update",
+    POST_DELETE_EPISODE:"/episode/delete"
 };

@@ -8,7 +8,7 @@ import cloudIcon from "@/public/cloud.svg";
 import { Header, Row } from "./Table";
 
 
-export default function Upload({episodes}:{episodes:any[]}) {
+export default function Upload({episodes, trigger}:{episodes:any[], trigger:Function}) {
 
 
 
@@ -61,7 +61,7 @@ export default function Upload({episodes}:{episodes:any[]}) {
                     </div>
                     <div className={styles.fileContainer}>
                         <h2>Your Files</h2>
-                        <Table headers={headers} rows={rows as Row[]}></Table>
+                        <Table headers={headers} rows={rows as Row[]} triggerReload={()=>trigger()}></Table>
                     </div>
                 </>
             )}
