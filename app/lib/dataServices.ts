@@ -204,3 +204,28 @@ export async function deleteEpisodeService(
     }
 }
 
+export async function updateUserService(
+    username:string,
+    token: string
+): Promise<any> {
+    try {
+        if (!token) {
+            throw new Error("No Token");
+        }
+        const response = await sendPostRequestAuth(
+            API_ENDPOINTS.POST_UPDATE_USER,
+            {
+                body: JSON.stringify({
+                    username
+                }),
+                token,
+            }
+        );
+
+        return response;
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+}
+

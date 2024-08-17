@@ -18,6 +18,8 @@ export interface IUser {
     token: string;
     hasProject: boolean;
     loggedIn: boolean;
+    email:string,
+    username:string
 }
 
 interface AuthContextType {
@@ -30,6 +32,7 @@ interface AuthContextType {
     logout: () => void;
     isAuthenticated: () => boolean;
     updateHasProject: (hasPassword:boolean) => void;
+    updateUsername: (username:string) => void;
 }
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
@@ -75,13 +78,15 @@ export function AuthProvider({
             setLoadingInitial(false);
             return;
         }
-        const { token, loggedIn, hasProject } = JSON.parse(storedUser);
+        const { token, loggedIn, hasProject,email, username } = JSON.parse(storedUser);
 
         if (token) {
             setUser({
                 token,
                 loggedIn,
                 hasProject,
+                email,
+                username
             });
         }
         setLoadingInitial(false);
@@ -93,11 +98,13 @@ export function AuthProvider({
             setLoading(true);
 
             const res = await loginService(email, password);
-            const { token, hasProject } = res.data;
+            const { token, hasProject, username, email:emailAddress } = res.data;
             setUser({
                 token,
                 loggedIn: true,
                 hasProject,
+                username,
+                email:emailAddress
             })
             setLocalStoreUpdate(true);
             router.push("/dashboard");
@@ -115,15 +122,29 @@ export function AuthProvider({
             setUser({
                 token:user?.token,
                 loggedIn:user?.loggedIn,
-                hasProject
+                hasProject,
+                email:user?.email,
+                username:user?.username
             })
+            setLocalStoreUpdate(true);
+        }
+    }
+
+    async function updateUsername(username:string){
+        if (user) {
+            setUser({
+                token: user?.token,
+                loggedIn: user?.loggedIn,
+                hasProject: user?.hasProject,
+                email: user?.email,
+                username
+            });
             setLocalStoreUpdate(true);
         }
     }
 
     async function logout() {
         try{
-            console.log("logouttt");
             if(!user?.token){
                 console.error("No Token");
                 return;
@@ -151,7 +172,8 @@ export function AuthProvider({
             login,
             logout,
             updateHasProject,
-            isAuthenticated
+            isAuthenticated,
+            updateUsername
         }),
         [user, loading, error]
     );
