@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +7,9 @@ import styles from "./SideBar.module.css";
 import quesLogo from "@/public/ques-logo.svg";
 import profileIcon from "@/public/propic1.svg";
 
-import * as allSvg from "@/public/customSvgs";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import useAuth from "@/app/lib/userContext";
 
 interface ISidebarOption {
     altText: string;
@@ -18,51 +18,8 @@ interface ISidebarOption {
     activeIcon: any;
     href: string;
     id: number;
+    activeOn: string[];
 }
-
-const options: ISidebarOption[] = [
-    {
-        text: "Add your Podcast(s)",
-        icon: allSvg.plussign,
-        activeIcon: allSvg.plussignActive,
-        altText: "option to add podcast",
-        href: "/project",
-        id: 1,
-    },
-    {
-        text: "Create & Repurpose",
-        icon: allSvg.pencil,
-        activeIcon: allSvg.penclActive,
-        altText: "option to create",
-        href: "/project/create",
-        id: 2,
-    },
-    {
-        text: "Podcast Widget",
-        icon: allSvg.widget,
-        activeIcon: allSvg.widgetActive,
-        altText: "Podcast Widget",
-        href: "/project/podcast",
-        id: 3,
-    },
-    {
-        text: "Upgrade",
-        icon: allSvg.diamond,
-        activeIcon: allSvg.diamondActive,
-        altText: "Upgrade",
-        href: "/project/diamond",
-        id: 4,
-    },
-];
-
-const helpOption: ISidebarOption = {
-    text: "Help",
-    altText: "help btn",
-    icon: allSvg.gear2,
-    activeIcon: allSvg.gear2Active,
-    href: "#",
-    id: 5,
-};
 
 function SideBarOption({
     data,
@@ -71,11 +28,13 @@ function SideBarOption({
     data: ISidebarOption;
     active: boolean;
 }) {
-
-
     return (
         <div
-            className={active ? `${styles.active} ${styles.sideBarOption}` : `${styles.sideBarOption}`}
+            className={
+                active
+                    ? `${styles.active} ${styles.sideBarOption}`
+                    : `${styles.sideBarOption}`
+            }
         >
             {active ? <span>{data.activeIcon}</span> : <span>{data.icon}</span>}
             <Link href={data.href}>{data.text}</Link>
@@ -83,9 +42,16 @@ function SideBarOption({
     );
 }
 
-export default function SideBar() {
+export default function SideBar({
+    options,
+    helpOption,
+}: {
+    options: ISidebarOption[];
+    helpOption: ISidebarOption;
+}) {
+    const { user } = useAuth();
+
     const pathName = usePathname();
-    console.log(pathName)
     return (
         <div className={styles.sideBar}>
             {/* <plusIcon></plusIcon> */}
@@ -94,7 +60,7 @@ export default function SideBar() {
             </div>
             <div className={styles.options}>
                 {options.map((option) => {
-                    const isActive = pathName.includes(option.href);
+                    const isActive = option.activeOn.includes(pathName);
                     return (
                         <SideBarOption
                             key={option.id}
@@ -116,8 +82,8 @@ export default function SideBar() {
                 <div className={styles.user}>
                     <Image src={profileIcon} alt="profil pic"></Image>
                     <div className={styles.userInfo}>
-                        <p>Username</p>
-                        <p className={styles.email}>username@gmail.com</p>
+                        <p>{user?.username}</p>
+                        <p className={styles.email}>{user?.email}</p>
                     </div>
                 </div>
             </div>
