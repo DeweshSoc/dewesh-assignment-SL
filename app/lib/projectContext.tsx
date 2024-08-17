@@ -15,12 +15,13 @@ import { usePathname, useRouter } from "next/navigation";
 export interface IProject {
     _id:string,
     title:string,
-    hasEpisodes:boolean
+    hasEpisodes:boolean,
+    currentEpisode:string
 }
 
 interface ProjectContextType {
     project?: IProject;
-    updateProject:(projectId:string, projectTitle:string, hasEpisodes:boolean)=>void;
+    updateProject:(projectId:string, projectTitle:string, hasEpisodes:boolean, currentEpisode:string)=>void;
     loading: boolean;
     error?: any;
 }
@@ -73,17 +74,19 @@ export function ProjectProvider({
             setProject({
                 _id,
                 title,
-                hasEpisodes
+                hasEpisodes,
+                currentEpisode:''
             });
         }
         setLoadingInitial(false);
     }, []);
 
-    async function updateProject(projectId:string,projectTitle:string, hasEpisodes:boolean){
+    async function updateProject(projectId:string,projectTitle:string, hasEpisodes:boolean,currentEpisode:string){
         setProject({
             _id:projectId,
             title:projectTitle,
-            hasEpisodes
+            hasEpisodes,
+            currentEpisode
         })
         setLocalStoreUpdate(true);
     }

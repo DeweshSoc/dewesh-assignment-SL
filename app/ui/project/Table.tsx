@@ -1,6 +1,9 @@
 import Image from "next/image";
 import styles from "./Table.module.css";
 import shareIcon from "@/public/share.svg";
+import { useRouter } from "next/navigation";
+import useAuth from "@/app/lib/userContext";
+import useProject from "@/app/lib/projectContext";
 
 export interface Header {
     title: string;
@@ -28,8 +31,18 @@ export default function Table({
     headers: Header[];
     rows: Row[];
 }) {
+    const router = useRouter();
+    const { project, updateProject } = useProject();
+
     function handleView(metaData: any) {
         console.log(metaData);
+        updateProject(
+            project?._id as string,
+            project?.title as string,
+            project?.hasEpisodes as boolean,
+            metaData._id
+        );
+        router.push("/project/edit");
     }
 
     return (
@@ -61,8 +74,10 @@ export default function Table({
                                     }`}
                                 >
                                     {cell.field === "status" ? (
-                                        <button className={`btn btn-round btn-${cell.data.toLowerCase()}`}>
-                                           {cell.data}
+                                        <button
+                                            className={`btn btn-round btn-${cell.data.toLowerCase()}`}
+                                        >
+                                            {cell.data}
                                         </button>
                                     ) : (
                                         cell.data

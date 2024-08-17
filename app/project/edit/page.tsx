@@ -2,23 +2,94 @@
 
 import Image from "next/image";
 import styles from "./edit.module.css";
-import { useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import backIcon from "@/public/back.svg";
+import {toast} from "react-toastify"
+import useAuth from "@/app/lib/userContext";
+import useProject from "@/app/lib/projectContext";
+import { useRouter } from "next/navigation";
+import { fetchEpisodeByIdService } from "@/app/lib/dataServices";
+import { IEpisode, updateEpisodeService } from "@/app/lib/dataServices";
 
 export default function Page() {
     const [editing, setEditing] = useState(false);
-    const [data, setData] = useState(
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, nisi libero ex laborum illo, alias repellendus expedita officia tempora officiis dolorem nemo, quo impedit maiores eum ratione magnam qui. Cupiditate commodi officia ullam facere autem. Hic assumenda facere atque similique odit, obcaecati cumque, ab veniam eum voluptas molestias reiciendis perspiciatis a eaque! Blanditiis sit placeat ducimus eligendi magni consequuntur, exercitationem, doloribus possimus laborum, repellendus dolorum tempore consectetur? Perspiciatis ipsa repudiandae qui quis quos quasi neque voluptatum consequuntur. Fugit inventore sed, animi doloribus at hic accusantium dolores illo assumenda laudantium voluptate repellat eligendi ab sit quos aliquid necessitatibus, mollitia harum unde. Illum cumque pariatur consequuntur, tempora explicabo tenetur similique impedit numquam minima odio fugiat tempore, laboriosam non aperiam voluptatibus porro atque architecto ut eius id in officiis hic autem. Consequatur, nostrum, facilis quos fuga necessitatibus doloribus praesentium quo eos sit tenetur maiores, facere ab earum aliquam perferendis unde? Fuga atque ea hic recusandae voluptatibus eligendi sequi quae temporibus debitis, aliquid mollitia quos explicabo ad ab officia a repellendus rerum illo commodi nihil libero. Minima cupiditate error nihil pariatur optio non veniam quidem voluptatibus, fugit blanditiis dignissimos, aperiam exercitationem odio eius vitae perspiciatis sint nisi ipsam ad accusantium ipsa nemo. Possimus aut, sapiente praesentium asperiores enim esse maiores tempora voluptatem necessitatibus voluptatum officia est sint voluptate dignissimos itaque voluptatibus ad quas, saepe cumque temporibus soluta quo qui! Dolorum amet, ut reprehenderit consequatur earum expedita necessitatibus est! Recusandae tenetur sed iste et inventore quasi. Ipsum, rem animi. Ut, distinctio qui! Inventore accusantium eos eum eveniet expedita, veritatis soluta ab vitae nobis ut eligendi id nam! Fugiat magnam, ea, assumenda iure magni facere error unde mollitia velit quo quibusdam repellat perferendis temporibus soluta est nam id impedit sed labore corrupti veritatis! Ullam dicta quisquam laborum possimus eos commodi quo reprehenderit nemo atque incidunt, architecto sequi minus accusamus, sit facilis, saepe nisi cumque adipisci. Distinctio autem rerum similique, culpa repudiandae, mollitia dolore tempora eius commodi id dolorem molestiae quod, an atque similique odit, obcaecati cumque, ab veniam eum voluptas molestias reiciendis perspiciatis a eaque! Blanditiis sit placeat ducimus eligendi magni consequuntur, exercitationem, doloribus possimus laborum, repellendus dolorum tempore consectetur? Perspiciatis ipsa repudiandae qui quis quos quasi neque voluptatum consequuntur. Fugit inventore sed, animi doloribus at hic accusantium dolores illo assumenda laudantium voluptate repellat eligendi ab sit quos aliquid necessitatibus, mollitia harum unde. Illum cumque pariatur consequuntur, tempora explicabo tenetur similique impedit numquam minima odio fugiat tempore, laboriosam non aperiam voluptatibus porro atque architecto ut eius id in officiis hic autem. Consequatur, nostrum, facilis quos fuga necessitatibus doloribus praesentium quo eos sit tenetur maiores, facere ab earum aliquam perferendis unde? Fuga atque ea hic recusandae voluptatibus eligendi sequi quae temporibus debitis, aliquid mollitia quos explicabo ad ab officia a repellendus rerum illo commodi nihil libero. Minima cupiditate error nihil pariatur optio non veniam quidem voluptatibus, fugit blanditiis dignissimos, aperiam exercitationem odio eius vitae perspiciatis sint nisi ipsam ad accusantium ipsa nemo. Possimus aut, sapiente praesentium asperiores enim esse maiores tempora voluptatem necessitatibus voluptatum officia est sint voluptate dignissimos itaque voluptatibus ad quas, saepe cumque temporibus soluta quo qui! Dolorum amet, ut reprehenderit consequatur earum expedita necessitatibus est! Recusandae tenetur sed iste et inventore quasi. Ipsum, rem animi. Ut, distinctio qui! Inventore accusantium eos eum eveniet expedita, veritatis soluta ab vitae nobis ut eligendi id nam! Fugiat magnam, ea, assumenda iure magni facere error unde mollitia velit quo quibusdam repellat perferendis temporibus soluta est nam id impedit sed labore corrupti veritatis! Ullam dicta quisquam laborum possimus eos commodi quo reprehenderit nemo atque incidunt, architecto sequi minus accusamus, sit facilis, saepe nisi cumque adipisci. Distinctio autem rerum similique, culpa repudiandae, mollitia dolore tempora eius commodi id dolorem molestiae quod, an atque similique odit, obcaecati cumque, ab veniam eum voluptas molestias reiciendis perspiciatis a eaque! Blanditiis sit placeat ducimus eligendi magni consequuntur, exercitationem, doloribus possimus laborum, repellendus dolorum tempore consectetur? Perspiciatis ipsa repudiandae qui quis quos quasi neque voluptatum consequuntur. Fugit inventore sed, animi doloribus at hic accusantium dolores illo assumenda laudantium voluptate repellat eligendi ab sit quos aliquid necessitatibus, mollitia harum unde. Illum cumque pariatur consequuntur, tempora explicabo tenetur similique impedit numquam minima odio fugiat tempore, laboriosam non aperiam voluptatibus porro atque architecto ut eius id in officiis hic autem. Consequatur, nostrum, facilis quos fuga necessitatibus doloribus praesentium quo eos sit tenetur maiores, facere ab earum aliquam perferendis unde? Fuga atque ea hic recusandae voluptatibus eligendi sequi quae temporibus debitis, aliquid mollitia quos explicabo ad ab officia a repellendus rerum illo commodi nihil libero. Minima cupiditate error nihil pariatur optio non veniam quidem voluptatibus, fugit blanditiis dignissimos, aperiam exercitationem odio eius vitae perspiciatis sint nisi ipsam ad accusantium ipsa nemo. Possimus aut, sapiente praesentium asperiores enim esse maiores tempora voluptatem necessitatibus voluptatum officia est sint voluptate dignissimos itaque voluptatibus ad quas, saepe cumque temporibus soluta quo qui! Dolorum amet, ut reprehenderit consequatur earum expedita necessitatibus est! Recusandae tenetur sed iste et inventore quasi. Ipsum, rem animi. Ut, distinctio qui! Inventore accusantium eos eum eveniet expedita, veritatis soluta ab vitae nobis ut eligendi id nam! Fugiat magnam, ea, assumenda iure magni facere error unde mollitia velit quo quibusdam repellat perferendis temporibus soluta est nam id impedit sed labore corrupti veritatis! Ullam dicta quisquam laborum possimus eos commodi quo reprehenderit nemo atque incidunt, architecto sequi minus accusamus, sit facilis, saepe nisi cumque adipisci. Distinctio autem rerum similique, culpa repudiandae, mollitia dolore tempora eius commodi id dolorem molestiae quod, animi cumque. Totam necessitatibus, nam optio quasi quis eligendi minima ad vitae officia quia consequatur, repudiandae quod cumque. Labore rerum quia eos, maiores eum dolor modi aperiam eaque magnam impedit tempore distinctio excepturi similique incidunt facere nam commodi. Nesciunt porro aspernatur unde cum accusantium ullam a, eveniet soluta molestiae sunt iusto officiis doloribus dolores possimus quam facere dolore dolorum, ex consequuntur exercitationem harum deserunt aliquam, alias quaerat. Autem deleniti, cupiditate, vero fuga nihil quidem vitae aspernatur ipsum aut, obcaecati unde. Optio eligendi veniam aspernatur non. Rem iure reprehenderit fugit ad dolorum aliquid suscipit quae repellendus, architecto animi. Nobis mollitia accusantium minus commodi omnis quam odit eos rerum architecto. Quidem consequuntur molestias quisquam at maiores velit nisi voluptate cumque eveniet optio mollitia voluptates in eligendi necessitatibus dicta, et, assumenda fuga impedit similique dolore sit, dolorem nobis! Voluptatibus aspernatur ipsa laudantium deleniti quis, sunt aperiam beatae aliquam libero cum necessitatibus eum dolores quo in? Veritatis perspiciatis quas accusantium id similique quisquam velit esse! Est doloribus sit cupiditate aut consequatur vel quibusdam! Aspernatur officiis facere architecto nemo quas aliquam"
-    );
-    const initialData =
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, nisi libero ex laborum illo, alias repellendus expedita officia tempora officiis dolorem nemo, quo impedit maiores eum ratione magnam qui. Cupiditate commodi officia ullam facere autem. Hic assumenda facere atque similique odit, obcaecati cumque, ab veniam eum voluptas molestias reiciendis perspiciatis a eaque! Blanditiis sit placeat ducimus eligendi magni consequuntur, exercitationem, doloribus possimus laborum, repellendus dolorum tempore consectetur? Perspiciatis ipsa repudiandae qui quis quos quasi neque voluptatum consequuntur. Fugit inventore sed, animi doloribus at hic accusantium dolores illo assumenda laudantium voluptate repellat eligendi ab sit quos aliquid necessitatibus, mollitia harum unde. Illum cumque pariatur consequuntur, tempora explicabo tenetur similique impedit numquam minima odio fugiat tempore, laboriosam non aperiam voluptatibus porro atque architecto ut eius id in officiis hic autem. Consequatur, nostrum, facilis quos fuga necessitatibus doloribus praesentium quo eos sit tenetur maiores, facere ab earum aliquam perferendis unde? Fuga atque ea hic recusandae voluptatibus eligendi sequi quae temporibus debitis, aliquid mollitia quos explicabo ad ab officia a repellendus rerum illo commodi nihil libero. Minima cupiditate error nihil pariatur optio non veniam quidem voluptatibus, fugit blanditiis dignissimos, aperiam exercitationem odio eius vitae perspiciatis sint nisi ipsam ad accusantium ipsa nemo. Possimus aut, sapiente praesentium asperiores enim esse maiores tempora voluptatem necessitatibus voluptatum officia est sint voluptate dignissimos itaque voluptatibus ad quas, saepe cumque temporibus soluta quo qui! Dolorum amet, ut reprehenderit consequatur earum expedita necessitatibus est! Recusandae tenetur sed iste et inventore quasi. Ipsum, rem animi. Ut, distinctio qui! Inventore accusantium eos eum eveniet expedita, veritatis soluta ab vitae nobis ut eligendi id nam! Fugiat magnam, ea, assumenda iure magni facere error unde mollitia velit quo quibusdam repellat perferendis temporibus soluta est nam id impedit sed labore corrupti veritatis! Ullam dicta quisquam laborum possimus eos commodi quo reprehenderit nemo atque incidunt, architecto sequi minus accusamus, sit facilis, saepe nisi cumque adipisci. Distinctio autem rerum similique, culpa repudiandae, mollitia dolore tempora eius commodi id dolorem molestiae quod, an atque similique odit, obcaecati cumque, ab veniam eum voluptas molestias reiciendis perspiciatis a eaque! Blanditiis sit placeat ducimus eligendi magni consequuntur, exercitationem, doloribus possimus laborum, repellendus dolorum tempore consectetur? Perspiciatis ipsa repudiandae qui quis quos quasi neque voluptatum consequuntur. Fugit inventore sed, animi doloribus at hic accusantium dolores illo assumenda laudantium voluptate repellat eligendi ab sit quos aliquid necessitatibus, mollitia harum unde. Illum cumque pariatur consequuntur, tempora explicabo tenetur similique impedit numquam minima odio fugiat tempore, laboriosam non aperiam voluptatibus porro atque architecto ut eius id in officiis hic autem. Consequatur, nostrum, facilis quos fuga necessitatibus doloribus praesentium quo eos sit tenetur maiores, facere ab earum aliquam perferendis unde? Fuga atque ea hic recusandae voluptatibus eligendi sequi quae temporibus debitis, aliquid mollitia quos explicabo ad ab officia a repellendus rerum illo commodi nihil libero. Minima cupiditate error nihil pariatur optio non veniam quidem voluptatibus, fugit blanditiis dignissimos, aperiam exercitationem odio eius vitae perspiciatis sint nisi ipsam ad accusantium ipsa nemo. Possimus aut, sapiente praesentium asperiores enim esse maiores tempora voluptatem necessitatibus voluptatum officia est sint voluptate dignissimos itaque voluptatibus ad quas, saepe cumque temporibus soluta quo qui! Dolorum amet, ut reprehenderit consequatur earum expedita necessitatibus est! Recusandae tenetur sed iste et inventore quasi. Ipsum, rem animi. Ut, distinctio qui! Inventore accusantium eos eum eveniet expedita, veritatis soluta ab vitae nobis ut eligendi id nam! Fugiat magnam, ea, assumenda iure magni facere error unde mollitia velit quo quibusdam repellat perferendis temporibus soluta est nam id impedit sed labore corrupti veritatis! Ullam dicta quisquam laborum possimus eos commodi quo reprehenderit nemo atque incidunt, architecto sequi minus accusamus, sit facilis, saepe nisi cumque adipisci. Distinctio autem rerum similique, culpa repudiandae, mollitia dolore tempora eius commodi id dolorem molestiae quod, an atque similique odit, obcaecati cumque, ab veniam eum voluptas molestias reiciendis perspiciatis a eaque! Blanditiis sit placeat ducimus eligendi magni consequuntur, exercitationem, doloribus possimus laborum, repellendus dolorum tempore consectetur? Perspiciatis ipsa repudiandae qui quis quos quasi neque voluptatum consequuntur. Fugit inventore sed, animi doloribus at hic accusantium dolores illo assumenda laudantium voluptate repellat eligendi ab sit quos aliquid necessitatibus, mollitia harum unde. Illum cumque pariatur consequuntur, tempora explicabo tenetur similique impedit numquam minima odio fugiat tempore, laboriosam non aperiam voluptatibus porro atque architecto ut eius id in officiis hic autem. Consequatur, nostrum, facilis quos fuga necessitatibus doloribus praesentium quo eos sit tenetur maiores, facere ab earum aliquam perferendis unde? Fuga atque ea hic recusandae voluptatibus eligendi sequi quae temporibus debitis, aliquid mollitia quos explicabo ad ab officia a repellendus rerum illo commodi nihil libero. Minima cupiditate error nihil pariatur optio non veniam quidem voluptatibus, fugit blanditiis dignissimos, aperiam exercitationem odio eius vitae perspiciatis sint nisi ipsam ad accusantium ipsa nemo. Possimus aut, sapiente praesentium asperiores enim esse maiores tempora voluptatem necessitatibus voluptatum officia est sint voluptate dignissimos itaque voluptatibus ad quas, saepe cumque temporibus soluta quo qui! Dolorum amet, ut reprehenderit consequatur earum expedita necessitatibus est! Recusandae tenetur sed iste et inventore quasi. Ipsum, rem animi. Ut, distinctio qui! Inventore accusantium eos eum eveniet expedita, veritatis soluta ab vitae nobis ut eligendi id nam! Fugiat magnam, ea, assumenda iure magni facere error unde mollitia velit quo quibusdam repellat perferendis temporibus soluta est nam id impedit sed labore corrupti veritatis! Ullam dicta quisquam laborum possimus eos commodi quo reprehenderit nemo atque incidunt, architecto sequi minus accusamus, sit facilis, saepe nisi cumque adipisci. Distinctio autem rerum similique, culpa repudiandae, mollitia dolore tempora eius commodi id dolorem molestiae quod, animi cumque. Totam necessitatibus, nam optio quasi quis eligendi minima ad vitae officia quia consequatur, repudiandae quod cumque. Labore rerum quia eos, maiores eum dolor modi aperiam eaque magnam impedit tempore distinctio excepturi similique incidunt facere nam commodi. Nesciunt porro aspernatur unde cum accusantium ullam a, eveniet soluta molestiae sunt iusto officiis doloribus dolores possimus quam facere dolore dolorum, ex consequuntur exercitationem harum deserunt aliquam, alias quaerat. Autem deleniti, cupiditate, vero fuga nihil quidem vitae aspernatur ipsum aut, obcaecati unde. Optio eligendi veniam aspernatur non. Rem iure reprehenderit fugit ad dolorum aliquid suscipit quae repellendus, architecto animi. Nobis mollitia accusantium minus commodi omnis quam odit eos rerum architecto. Quidem consequuntur molestias quisquam at maiores velit nisi voluptate cumque eveniet optio mollitia voluptates in eligendi necessitatibus dicta, et, assumenda fuga impedit similique dolore sit, dolorem nobis! Voluptatibus aspernatur ipsa laudantium deleniti quis, sunt aperiam beatae aliquam libero cum necessitatibus eum dolores quo in? Veritatis perspiciatis quas accusantium id similique quisquam velit esse! Est doloribus sit cupiditate aut consequatur vel quibusdam! Aspernatur officiis facere architecto nemo quas aliquam";
+    const [episode, setEpisode] = useState<IEpisode | null>(null);
+    const [initialTranscript, setInitialTranscript] = useState("");
+    const [triggerFetch, setTriggerFetch] = useState(true);
+    const {user, isAuthenticated, logout} = useAuth();
+    const {project} = useProject();
+    const router = useRouter();
+
+    useEffect(()=>{
+        if(!isAuthenticated()){
+            router.push("/");
+        }
+        if (!project) {
+            router.push("/dashboard");
+        }
+        if(!project?.currentEpisode){
+            router.push("/project");
+        }
+    },[])
+
+    useEffect(() => {
+        async function getPageData() {
+            try {
+                const response = await fetchEpisodeByIdService(
+                    project?._id as string,
+                    project?.currentEpisode as string,
+                    user?.token as string
+                );
+                setEpisode(response.data.episode);
+                setInitialTranscript(response.data.episode.transcript);
+            } catch (err: any) {
+                if (err.status === 403) {
+                    await logout();
+                }
+                toast.error(err.message);
+            }
+        }
+        if (!user?.token) return;
+        if (!project) return;
+        if (triggerFetch) {
+            getPageData();
+            setTriggerFetch(false);
+        }
+    }, [triggerFetch]);
+
+
+
+    async function handleSubmit(e:SyntheticEvent){
+        try {
+            e.preventDefault();
+            if(!episode){
+                toast.error("No Episode");
+                router.push("/project");
+                return;
+            }
+            const response = await updateEpisodeService(
+                episode,
+                project?._id as string,
+                user?.token as string
+            );
+            toast.success(`${response?.message}`);
+            setEditing(false);
+        } catch (err: any) {
+            if (err.status === 403) {
+                await logout();
+            }
+            console.error(err);
+            toast.error(err.message);
+        } 
+    }
+
 
     // const data =
     const view = (
         <div className={styles.viewBox}>
             <div className={styles.viewContainer}>
                 <h3>Speaker</h3>
-                {data}
+                {episode?.transcript}
             </div>
         </div>
     );
@@ -27,10 +98,14 @@ export default function Page() {
         <div className={styles.editBox}>
             <textarea
                 className={styles.editContainer}
-                value={data}
+                value={episode?.transcript}
                 name="transcript"
                 onChange={(e) => {
-                    setData(e.target.value);
+                    if(!episode) return;
+                    setEpisode({
+                        ...episode,
+                        transcript:e.target.value
+                    });
                 }}
             />
         </div>
@@ -40,7 +115,7 @@ export default function Page() {
         <div className={styles.outlet}>
             <div className={styles.header}>
                 <div className={styles.heading}>
-                    <Image src={backIcon} alt="back"></Image>
+                    <Image src={backIcon} alt="back" onClick={()=>router.back()}></Image>
                     <h1>Edit Transcript</h1>
                 </div>
                 <div className={styles.buttons}>
@@ -50,7 +125,11 @@ export default function Page() {
                         <>
                             <button
                                 onClick={() => {
-                                    setData(initialData);
+                                    if(!episode) return;
+                                    setEpisode({
+                                        ...episode,
+                                        transcript:initialTranscript
+                                    });
                                     setEditing(false);
                                 }}
                                 className="btn-cancel btn-outline-cancel"
@@ -58,9 +137,7 @@ export default function Page() {
                                 Discard
                             </button>
                             <button
-                                onClick={() => {
-                                    setEditing(false);
-                                }}
+                                onClick={(e)=>{handleSubmit(e)}}
                             >
                                 Save
                             </button>

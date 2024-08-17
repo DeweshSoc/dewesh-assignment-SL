@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 import { Modal } from "../common/Modal";
 import styles from "./CreateEpisodeModal.module.css";
 import { createEpisodeService } from "@/app/lib/dataServices";
-import { usePathname, useRouter } from "next/navigation";
 import useAuth from "@/app/lib/userContext";
 import useProject from "@/app/lib/projectContext";
 
@@ -67,7 +66,7 @@ export default function CreateEpisodeModal({
             
             const { hasEpisode } = response.data;
 
-            updateProject(project?._id as string,project?.title as string,hasEpisode);
+            updateProject(project?._id as string,project?.title as string,hasEpisode, "");
             toast.success(`${response?.message}`);
 
             if (triggerFetch) {

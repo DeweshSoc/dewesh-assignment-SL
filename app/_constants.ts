@@ -7,5 +7,6 @@ export const API_ENDPOINTS = {
     GET_LOGOUT:"/auth/logout",
     POST_EPISODE_CREATE:"/episode/create",
     POST_FETCH_EPISODES:"/episode/all",
-    POST_FETCH_EPISODE_BY_ID:"/episode/",
+    POST_FETCH_EPISODE_BY_ID:"/episode",
+    POST_UPDATE_EPISODE:"/episode/update"
 };
