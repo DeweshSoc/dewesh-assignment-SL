@@ -12,7 +12,7 @@
 .modalContent input[type="text"] {
     background-color: var(--background-color);
     border: solid 1.28px #dbdbdb;
-    border-radius: 7.7px;
+    border-radius: 0.481rem;
     font-size: 1.2rem;
     font-weight: 500;
     margin: 0 0 0.5rem 0;

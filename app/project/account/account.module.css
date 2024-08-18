@@ -43,7 +43,7 @@
 
 .settings div input {
     border: 1px solid #999999;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     font-size: 1rem;
     min-width: 18.75rem;
     padding: 0.8rem;
@@ -62,7 +62,7 @@
     align-items: center;
     background: linear-gradient(90.02deg, #ffffff 0.95%, #edd9ff 99.9%);
     border: 0.61px solid #7e22ce;
-    border-radius: 13px;
+    border-radius: 0.812rem;
     color: var(--accent-text-color);
     display: flex;
     font-size: 1.5rem;

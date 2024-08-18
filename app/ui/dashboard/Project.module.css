@@ -1,6 +1,6 @@
 .projectContainer {
     border: 1.19px #999999 solid;
-    border-radius: 26px;
+    border-radius: 1.625rem;
     cursor: pointer;
     display: flex;
     flex-direction: row;
@@ -13,7 +13,7 @@
     align-items: center;
     aspect-ratio: 1/1;
     background-color: #f8a01d;
-    border-radius: 18px;
+    border-radius: 1.125rem;
     color: #fff;
     display: flex;
     font-size: 5rem;

@@ -14,7 +14,7 @@
 
 .modalContainer {
     background-color: var(--background-color);
-    border-radius: 10px;
+    border-radius: 0.625rem;
     font-family: var(--font-roboto);
     padding: 2rem;
     width: 50%;

@@ -2,7 +2,7 @@
     align-items: center;
     background-color: #fff;
     border: 0.68px solid #c7c7c7;
-    border-radius: 15px;
+    border-radius: 0.937rem;
     box-shadow: 0px 7px 13px -7px #999999;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@
 .uploadContainer button {
     background-color: transparent;
     border: 2px solid var(--accent-text-color);
-    border-radius: 50px;
+    border-radius: 3.125rem;
     color: var(--accent-text-color);
     font-size: 1.5rem;
     font-weight: 700;
@@ -43,7 +43,7 @@
 
 .banner {
     background-color: #ffe091;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     color: #b87a1f;
     font-size: 1.3rem;
     font-weight: 600;
@@ -54,7 +54,7 @@
 .fileContainer {
     background-color: #fff;
     border: 0.68px solid #c7c7c7;
-    border-radius: 15px;
+    border-radius: 0.937rem;
     box-shadow: 0px 7px 13px -7px #999999;
     display: flex;
     flex-direction: column;

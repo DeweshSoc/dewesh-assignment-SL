@@ -8,7 +8,7 @@
 .loginForm input[type="password"] {
     background-color: var(--background-color);
     border: solid 1.28px #dbdbdb;
-    border-radius: 7.7px;
+    border-radius: 0.481rem;
     font-size: 1.2rem;
     font-weight: 500;
     margin: 0 0 1.2rem 0;
@@ -38,7 +38,7 @@
 .loginBtn {
     background-color: var(--accent-text-color);
     border: none;
-    border-radius: 7.7px;
+    border-radius: 0.481rem;
     box-shadow: none;
     color: #ffffff;
     font-size: 1.2rem;
@@ -55,7 +55,7 @@
 .signupBtn {
     background-color: transparent;
     border: 1px solid var(--accent-text-color);
-    border-radius: 7.7px;
+    border-radius: 0.481rem;
     box-shadow: none;
     color: var(--accent-text-color);
     font-size: 1.2rem;

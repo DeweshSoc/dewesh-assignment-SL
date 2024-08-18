@@ -32,7 +32,7 @@
 
 .sideBarOption {
     align-items: center;
-    border-radius: 7px;
+    border-radius: 0.437rem;
     color: #646464;
     cursor: pointer;
     display: flex;
