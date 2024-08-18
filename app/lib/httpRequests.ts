@@ -34,6 +34,7 @@ export const sendPostRequest = (
         }
     });
 };
+
 export const sendPostRequestAuth = (
     path: string,
     options: Record<string, any>

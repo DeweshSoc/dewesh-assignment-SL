@@ -111,7 +111,7 @@ export function AuthProvider({
             router.push("/dashboard");
         } catch (err) {
             setError(err);
-            console.log("AUTH ERROR -> " + err);
+            console.error("AUTH ERROR -> " + err);
             throw err;
         } finally {
             setLoading(false);
@@ -157,7 +157,7 @@ export function AuthProvider({
             toast.success("Logout successful");
         } catch (err: any) {
             setError(err);
-            console.log("AUTH ERROR -> " + err);
+            console.error("AUTH ERROR -> " + err);
         }
     }
 

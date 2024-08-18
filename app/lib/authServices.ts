@@ -57,7 +57,7 @@ export async function logoutService(token: string) {
             token,
         });
     } catch (err) {
-        console.log(err);
+        console.error(err);
         throw err;
     }
 }

@@ -6,7 +6,7 @@ import useProject from "@/app/lib/projectContext";
 export default function Project({ data }: { data: any }) {
     const { updateProject } = useProject();
     const router = useRouter();
-    console.log(data);
+    //console.log(data);
     const { duration, unit } = parseDiffFromNow(data.updatedAt);
     function onProjectSelection() {
         updateProject(data._id, data.title, data.episodes.length > 0, "");
