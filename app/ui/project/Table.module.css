@@ -71,6 +71,19 @@
     height: auto;
 }
 
+.confirmModalP{
+    margin: 1rem 0;
+    font-size: 1rem;
+    color: var(--light-text-hex);
+}
+
+.buttonsContainer{
+    margin: 1rem 0 0;
+    display: flex;
+    justify-content: right;
+    gap: 1rem;
+}
+
 .tableCell5 {
     width: 5%;
 }

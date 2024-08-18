@@ -55,6 +55,11 @@ a {
     font-weight: 700;
 }
 
+.btn-danger{
+    background-color: #e74946;
+    color: #fff;
+}
+
 .btn-round {
     border-radius: 2.5rem;
     padding: 0.5rem 1rem;

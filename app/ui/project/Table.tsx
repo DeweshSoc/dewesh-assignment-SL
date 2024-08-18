@@ -6,6 +6,8 @@ import useAuth from "@/app/lib/userContext";
 import useProject from "@/app/lib/projectContext";
 import { toast } from "react-toastify";
 import { deleteEpisodeService } from "@/app/lib/dataServices";
+import { useState } from "react";
+import { Modal } from "../common/Modal";
 
 export interface Header {
     title: string;
@@ -38,6 +40,7 @@ export default function Table({
     const router = useRouter();
     const { user, logout } = useAuth();
     const { project, updateProject } = useProject();
+    const [confirmation, setConfirmation] = useState(null);
 
     function handleView(metaData: any) {
         updateProject(
@@ -72,6 +75,34 @@ export default function Table({
             toast.error(err.message);
         }
     }
+
+    const ConfirmationModal = ({ data }: { data: any }) => {
+        return (
+            <>
+                <Modal modalTitle="Confirmation">
+                    <p
+                        className={styles.confirmModalP}
+                    >{`Are you sure you want to delete episode - "${data.title}" ?`}</p>
+                    <div className={styles.buttonsContainer}>
+                        <button
+                            className="btn btn-outline"
+                            onClick={() => {
+                                setConfirmation(null);
+                            }}
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            className="btn btn-danger"
+                            onClick={() => handleDelete(data)}
+                        >
+                            Delete
+                        </button>
+                    </div>
+                </Modal>
+            </>
+        );
+    };
 
     return (
         <div className={styles.tableContainer}>
@@ -126,7 +157,7 @@ export default function Table({
                                     <button
                                         className="btn-cancel"
                                         onClick={() => {
-                                            handleDelete(row.metaData);
+                                            setConfirmation(row.metaData);
                                         }}
                                     >
                                         Delete
@@ -135,31 +166,16 @@ export default function Table({
                             </div>
                         </div>
                         <div className={`${styles.cell} ${styles.tableCell5}`}>
-                            <Image className={styles.shareIcon} src={shareIcon} alt="share icon" />
+                            <Image
+                                className={styles.shareIcon}
+                                src={shareIcon}
+                                alt="share icon"
+                            />
                         </div>
                     </div>
                 );
             })}
+            {confirmation ? <ConfirmationModal data={confirmation}></ConfirmationModal> : <></>}
         </div>
     );
-}
-
-{
-    /* 
-            <div className={`${styles.cell} ${styles.tableCell10}`}>1</div>
-            <div className={`${styles.cell} ${styles.tableCell30}`}>
-            THE SIDEPOD S2 EPISODE 15
-            </div>
-            <div className={`${styles.cell} ${styles.tableCell20}`}>
-            25 Oct 23 | 09:04
-            </div>
-
-            <div
-                className={`${styles.cell} ${styles.tableCell20}`}
-            >
-                <button className="btn btn-round btn-pending">
-                    In Progress
-                </button>
-            </div>
- */
 }
