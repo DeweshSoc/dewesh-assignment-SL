@@ -67,6 +67,7 @@ export default function Table({
             );
             toast.success(`${response?.message}`);
             triggerReload();
+            setConfirmation(null);
         } catch (err: any) {
             if (err.status === 403) {
                 await logout();
