@@ -90,7 +90,7 @@ export default function Page() {
                     alt="back"
                     onClick={() => router.back()}
                 ></Image>
-                <h1>Add Podcast</h1>
+                <h1 className={styles.title}>Add Podcast</h1>
             </div>
             <div className={styles.cards}>
                 {cardData.map((card) => {
