@@ -40,8 +40,9 @@ export default function Page() {
                 user?.token as string
             );
             const { username: usrName } = response.data;
-            updateUsername(username);
+            updateUsername(usrName);
             toast.success("Username updated");
+            setEditing(false);
         } catch (err: any) {
             if (err.status === 403) {
                 await logout();
